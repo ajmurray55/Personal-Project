@@ -13,8 +13,42 @@
 <li>Use React-payment
 </ul>
 
-## **Client**
 
+#### Ice Box
+<li>Use Calander-React
+
+
+## **Client**
+### *dependencies*
+- axios
+- react-router-dom
+- redux
+- react-redux
+- redux-promise-middleware
+
+### *routes*
+- home (/)
+- store (/store)
+- about (/about)
+- cart (/cart)
+- appointment(/appointment)
+
+### *file structure*
+
+- src/
+    - App.js
+    - App.css
+    - index.js
+    - reset.css
+    - redux/
+        - store
+        - reducer
+    - components/
+        - Home.js/.css
+        - Store.js/.css
+        - About.js/.css
+        - Cart.js/.css
+        - Appointment.js/.css
 
 ## **Server**
 <br/>
@@ -24,7 +58,7 @@
 - express
 - massive
 - dotenv
-- bcrpt
+- bcrypt
 ### *Endpoints*
 <br/>
 
@@ -40,7 +74,6 @@ phoneFixerCtrl:
 - (app.get) getAll_Androids: => /api/getAll_Androids
 - (app.get) getAll_Google: => /api/getAll_Google
 - (app.post) post_Product: => /api/post_Product
-- (app.post) post_Phone: =>
 - (app.delete) delete_Product: /api/delete_Product
 - (app.put) edit_Product: /api/edit_Product
 - (app.put) edit_Phone: /api/edit_Phone
@@ -74,5 +107,13 @@ CREATE TABLE product(
     phone_id INT REFERENCES phones(phone_id),
     user_id INT REFERENCES users(user_id)
 );
+```
 
+#### Cart Table
+```sql
+CREATE TABLE cart(
+    cart_id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES product(product_id),
+    user_id INT REFERENCES users(user_id)
+);
 ```
