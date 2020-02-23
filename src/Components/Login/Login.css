@@ -1,0 +1,90 @@
+.body {
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background: url('../../background.jpg') no-repeat center center fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:
+}
+
+
+.loginOuterBox{
+    height: 600px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0F1620;
+    border-radius: 30px;
+}
+.loginInnerBox{
+    height: 450px;
+    width: 850px;
+    background-color:grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 30px;
+    color: white;
+}
+.login_inputs{
+    display: flex;
+    flex-direction: column;
+}
+.titleText {
+    font-size: x-large;
+    font-family: 'Krona One';
+    text-decoration: underline;
+}
+.Reg_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-family: 'Krona One';
+}
+.discount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-family: 'Krona One';
+}
+.registerOuterBox {
+    height: 600px;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0F1620;
+    border-radius: 30px;
+
+}
+.registerInnerBox{
+    height: 450px;
+    width: 850px;
+    background-color:grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 30px;
+    color: white;
+}
+
+.LogButton {
+font-size: large;
+background-color: grey;
+border-color: white;
+border-radius: 4px;
+color: white;
+font-family: 'Krona One';
+
+}
+
+.LogButton:hover {
+    color: black;
+}

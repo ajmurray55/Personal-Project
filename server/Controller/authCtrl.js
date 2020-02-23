@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     login: async (req, res, next) => {
-        const db = req.app.get('db');
-        let { email, password } = req.body
+        const db = req.app.get("db");
+        let { password, email } = req.body
         const foundUser = await db.select_user(email).catch(err => console.log(err))
         if(!foundUser.length){
             res.status(401).send("That user doesn't exist")
@@ -18,7 +18,8 @@ module.exports = {
                 };
                 res.status(200).send(req.session.user);
             } else {
-                res.status(401).send('Incorrect email and/or password')
+                res.status(401).send('')
+                
             }
         }
     },
@@ -28,8 +29,9 @@ module.exports = {
         const db = req.app.get('db');
         const { username, password, email } = req.body;
         const foundUser = await db.select_user(email);
+        console.log('founduser')
         if (foundUser.lenth){
-            res.status(409).send('That user already exists! Please use an alternate email')
+            res.status(401).send('That user already exists! Please use an alternate email')
         } else {
             const saltRounds = 12;
             bcrypt.genSalt(saltRounds).then(salt => {
@@ -38,7 +40,7 @@ module.exports = {
                    .then(([user]) => {
                        req.session.user = user;
                        res.status(200).send(req.session.user)
-                   })
+                   }).catch(res.status(401).send(''))
                })
             })
         }
@@ -49,6 +51,7 @@ module.exports = {
     logout: async (req, res, next) => {
         req.session.destroy();
         res.sendStatus(200);
+        res.redirect('http://localhost:3000')
     },
 
 

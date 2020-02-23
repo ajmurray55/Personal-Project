@@ -1,0 +1,11 @@
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: #0F1620;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    font-size: 30px;
+    font-family: 'Krona One';
+    color: white;
+}
