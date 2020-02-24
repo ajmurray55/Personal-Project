@@ -1,12 +1,12 @@
 .body {
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     background-position: center;
     background: url('../../background.jpg') no-repeat center center fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:
+
 }
 
 
@@ -87,4 +87,30 @@ font-family: 'Krona One';
 
 .LogButton:hover {
     color: black;
+}
+
+@media (max-width: 710px){
+
+   
+    .loginOuterBox {
+        height: 400px;
+        width: 300px;
+    }
+
+    .loginInnerBox {
+        height: 350px;
+        width: 250px;
+    }
+    .discount{
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    .registerOuterBox{
+        height: 400px;
+        width: 300px;
+    }
+    .registerInnerBox{
+        height: 350px;
+        width: 250px;
+    }
 }

@@ -29,8 +29,8 @@ module.exports = {
         const db = req.app.get('db');
         const { username, password, email } = req.body;
         const foundUser = await db.select_user(email);
-        console.log('founduser')
-        if (foundUser.lenth){
+        console.log('foundUser',foundUser)
+        if (foundUser.length){
             res.status(401).send('That user already exists! Please use an alternate email')
         } else {
             const saltRounds = 12;
@@ -40,11 +40,10 @@ module.exports = {
                    .then(([user]) => {
                        req.session.user = user;
                        res.status(200).send(req.session.user)
-                   }).catch(res.status(401).send(''))
+                   })
                })
             })
         }
-
     },
 
 

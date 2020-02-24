@@ -4,8 +4,130 @@ header {
     background-color: #0F1620;
     display: flex;
     align-items: center;
-    padding-left: 60px;
-    font-size: 30px;
+    justify-content: space-evenly;
     font-family: 'Krona One';
     color: white;
+}
+
+.phoneImg{
+    width: 60px;
+    height: 60px;
+    filter: invert()
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: x-large;
+    text-decoration: none;
+    color: white;
+    width: 20vw;
+    
+}
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.menuButton{
+    height: 1px;
+    width: 1px;
+    display: none;
+    align-items: center;
+    border: black;
+    /* background-color: #0F1620; */
+    flex: row;
+    filter: invert();
+    
+}
+.hamburger {
+    width: 30px;
+    height: 30px;
+   
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+nav {
+    display: flex;
+    /* flex-direction: flex-end; */
+}
+
+.navigation{
+    animation: stretch;
+    animation-duration: .5s;
+}
+.navTitles {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 25tvw;
+    margin: 0 20px;
+    /* margin-left: 50px; */
+    text-decoration: none;
+}
+.navTitles:hover {
+    color: darkgrey
+}
+
+.mobile-menu-show{
+    text-decoration: none;
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    background-color: #0F1620;
+    animation-name: drop;
+    animation-duration: .5s;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    border-radius: 6px;
+}
+.mobile-menu-hide{
+    display: none;
+}
+
+@keyframes drop {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 200px
+    }
+}
+
+@media screen and (max-width: 700px){
+    
+ 
+    .hamburger{
+        display: inline-block;
+    }
+    .navigation{
+        display: none;
+    }
+    .menuButton{
+        display: inline-block;
+    }
+ 
+    .title {
+        display: flex;
+        font-size: large;
+        width: 50vw;
+    }
+
+    .phoneImg{
+        width: 40px;
+        height: 40px;
+    }
+
+
 }
