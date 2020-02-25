@@ -16,7 +16,14 @@ class Store extends React.Component{
     render(){
         console.log(this.props)
         return(
-            <div>Store Page</div>
+            <div>Store Page
+
+                <img
+                className ="phonePic"
+                src= 
+                'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6347/6347790cv12d.jpg'
+                />
+            </div>
         )
     }
 }

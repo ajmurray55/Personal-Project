@@ -5,6 +5,10 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL
 );
 
-INSERT INTO users (username, password, email)
-VALUES
-('ajmurray55', 'ajm', 'ammonmurray1@gmail.com')
+CREATE TABLE phones(
+    phone_id SERIAL PRIMARY KEY,
+    manufacturer VARCHAR(15),
+    model VARCHAR(40),
+    color VARCHAR(20),
+    image TEXT
+);  
