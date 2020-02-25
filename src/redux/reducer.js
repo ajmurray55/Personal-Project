@@ -3,7 +3,8 @@ import axios from 'axios';
 let initialState = {
     user: {},
     loading: false,
-    loggedIn: false
+    loggedIn: false,
+    
 };
 
 const SET_USER = 'SET_USER'

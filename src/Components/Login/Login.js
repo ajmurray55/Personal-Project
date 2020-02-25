@@ -11,7 +11,9 @@ class Login extends Component {
       username: "",
       email: "",
       password: "",
-      register: false
+      register: false,
+      registerFailed: false,
+      loggedInFailed: false
     };
   }
 
@@ -21,27 +23,35 @@ class Login extends Component {
     });
   };
 
-  login = async (email, password) => {
-    let body = { email, password };
+  login = (username, password) => {
+    let body = { username, password };
     console.log("body", body);
-    const res = await axios.post("/auth/login", body);
-    if (res) {
+    axios.post("/auth/login", body)
+    .then(res => {
       this.props.setUser(res.data);
       this.props.history.push("/store");
-    } else {
-     alert('Username and/or Password is Incorrect.')
-    }
-  
-    console.log("res", res);
+    }).catch(err => {
+      this.setState({
+        loggedInFailed: true
+      })
+    })
+    
+   
+    // console.log("res", res);
   };
 
-  register = async (username, email, password) => {
+  register = (username, email, password) => {
     let newUser = { username, email, password };
-    const res = await axios
-      .post("/auth/register", newUser)
-    //   .catch(alert("That user already exists! Please use an alternate email"));
-    this.props.setUser(res.data);
-    this.props.history.push("/store");
+    axios.post("/auth/register", newUser)
+    .then(res => {
+      this.props.setUser(res.data);
+      this.props.history.push("/store")
+    }).catch(err => {
+      this.setState({
+        registerFailed: true
+      })
+    });
+    
   };
 
   render() {
@@ -55,7 +65,7 @@ class Login extends Component {
               <form
                 onSubmit={e => {
                   e.preventDefault();
-                  this.login(this.state.email, this.state.password);
+                  this.login(this.state.username, this.state.password);
                 }}
               >
                 <div className="login_inputs">
@@ -76,6 +86,12 @@ class Login extends Component {
                   <input type="submit" value="Login" />
                 </div>
               </form>
+              {this.state.loggedInFailed
+              ?
+              <p className="error">Incorrect username and/or password</p>
+              :
+              <p></p>
+              }
               <div className="Reg_text"></div>
               <label className="Reg_text">Don't have an account? </label>
               <label className="discount">
@@ -127,8 +143,16 @@ class Login extends Component {
                     value={this.state.password}
                   />
                   <input type="submit" value="Register" />
+                  
                 </div>
               </form>
+              {
+                this.state.registerFailed
+                ?
+                <p className="error">That user already exists! Please use an alternate email</p>
+                :
+                <p></p>
+              }
               <label className="Reg_text">Already have an account?</label>
               <button
                 className="LogButton"
@@ -136,6 +160,7 @@ class Login extends Component {
               >
                 Login
               </button>
+            
             </div>
           </div>
         )}

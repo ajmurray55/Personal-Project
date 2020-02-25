@@ -49,11 +49,11 @@ class Header extends React.Component {
             </Link>
           </nav>
             
-          {this.props.loading ? (
+          {/* {this.props.loading ? (
             <h1>waiting...</h1>
           ) : this.props.loggedIn ? (
             <h1 className="welcome">Welcome {this.props.user.username}</h1>
-          ) : null}
+          ) : null} */}
           <div className="buttondiv">
             <button className="menuButton">
               <img

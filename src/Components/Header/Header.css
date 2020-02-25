@@ -46,13 +46,14 @@ header {
     height: 30px;
    
 }
-
+/* 
 .welcome {
+    font: 300;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     
-}
+} */
 nav {
     display: flex;
     /* flex-direction: flex-end; */
@@ -86,11 +87,10 @@ nav {
     justify-content: space-around;
     background-color: #0F1620;
     animation-name: drop;
-    animation-duration: .5s;
     position: absolute;
     right: 0px;
     z-index: 1;
-    border-radius: 6px;
+    border-radius: 2px;
 }
 .mobile-menu-hide{
     display: none;

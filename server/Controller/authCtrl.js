@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt')
 module.exports = {
     login: async (req, res, next) => {
         const db = req.app.get("db");
-        let { password, email } = req.body
-        const foundUser = await db.select_user(email).catch(err => console.log(err))
+        let { password, username } = req.body
+        const foundUser = await db.select_user(username).catch(err => console.log(err))
         if(!foundUser.length){
-            res.status(401).send("That user doesn't exist")
+            res.status(401).send("Incorrect username and/or password")
         } else {
             const matchPasswords = await bcrypt.compare(password, foundUser[0].password)
             .catch(err => console.log(err))
@@ -18,7 +18,7 @@ module.exports = {
                 };
                 res.status(200).send(req.session.user);
             } else {
-                res.status(401).send('')
+                res.status(401).send("Incorrect username and/or password")
                 
             }
         }
@@ -29,9 +29,9 @@ module.exports = {
         const db = req.app.get('db');
         const { username, password, email } = req.body;
         const foundUser = await db.select_user(email);
-        console.log('foundUser',foundUser)
+        console.log('foundUser', foundUser)
         if (foundUser.length){
-            res.status(401).send('That user already exists! Please use an alternate email')
+            res.status(409).send('That user already exists! Please use an alternate EMAIL')
         } else {
             const saltRounds = 12;
             bcrypt.genSalt(saltRounds).then(salt => {
