@@ -48,24 +48,29 @@ class Store extends React.Component {
     console.log("state", this.state)
     const mappedPhones = this.state.phones.map(phone => {
       return (
-        <div>
-          
-          <img src={phone.image} alt="phone" />
+        <div className="outerContainer">
           <div>{phone.manufacturer}</div>
-      <div>{phone.model}</div>
-      <div>{phone.color}</div>
-
-
-        </div>
+          <div>{phone.model}</div>
+          <img className="phoneImage" src={phone.image} alt="phone" />
+          {/* <div>{phone.color}</div> */}
+          </div>
+        
       );
     });
     return (
       <div>
-        Store page
-
+        <div className="manuButtons">
         <button onClick={() => this.getAllPhones("Apple")}>
-          get all iphones
+          Apple
         </button>
+        <button onClick={() => this.getAllPhones("Samsung")}>
+          Samsung
+          </button>
+          <button onClick={() => this.getAllPhones("Google")}>
+            Google
+          </button>
+          </div>
+
         {mappedPhones}
       </div>
     );

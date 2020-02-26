@@ -1,4 +1,21 @@
-.phonePic {
-    width: 500px;
+.phoneImage {
     height: 500px;
+}
+
+.outerContainer {
+height: 550px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
+flex-wrap: wrap;
+border: 2px black;
+background-color: darkcyan;
+}
+
+.manuButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkblue;
 }
