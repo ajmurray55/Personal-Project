@@ -31,7 +31,7 @@ app.post('/auth/login', login)
 app.get('/auth/user_session', userSession)
 app.get('/auth/logout', logout)
 // phoneCtrl ENDPOINTS
-app.get('/api/all_phones', getAllPhones)
+app.get("/api/all_phones", getAllPhones)
 
 
 app.listen(SERVER_PORT, () => console.log(`Running on Server Port ${SERVER_PORT}`));

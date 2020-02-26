@@ -1,5 +1,4 @@
 import React from "react";
-// import axios from 'axios';
 import "./Store.css";
 import { connect } from "react-redux";
 import axios from "axios";
@@ -13,19 +12,32 @@ class Store extends React.Component {
     };
   }
 
-  getAllPhones = async manufacturer => {
-    console.log("before phones", this.state.phones);
-    const res = await axios.get("/api/all_phones", { manufacturer });
-    this.setState({
-      phones: res.data
-    });
-    console.log("after phones", this.state.phones);
-  };
+//   getAllPhones = async manufacturer => {
+//     const res = await axios.get("/api/all_phones", { manufacturer });
+    
+//     this.setState({
+//       phones: res.data
+//     });
+//     console.log("after phones", this.state.phones);
+//   };
+
+  getAllPhones = manufacturer => {
+      console.log('before phones' , this.state.phones)
+     axios
+      .get('/api/all_phones', {manufacturer}).then(res => {
+        this.setState({
+            phones: res.data
+        })
+      })
+    console.log("after phones", this.state.phones)
+      
+  }
 
   componentDidMount() {
     console.log("mounted");
     this.getAllPhones("Apple");
   }
+
   render() {
     console.log("store!", this.props);
     console.log("state", this.state)
@@ -40,7 +52,7 @@ class Store extends React.Component {
       <div>
         Store Page
         <button onClick={() => this.getAllPhones("Apple")}>
-          get all phones
+          get all iphones
         </button>
         {mappedPhones}
       </div>
