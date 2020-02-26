@@ -17,7 +17,7 @@ export function setUser(user){
     }
 }
 export function getSession(){
-    let user = axios.get('/auth/userSession')
+    let user = axios.get('/auth/user_session')
     .then(res => res)
     console.log(user)
         return {

@@ -6,6 +6,8 @@ const app = express();
 
 const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
 const {login, register, logout, userSession} = require('./Controller/authCtrl')
+const {getAllPhones} = require('./Controller/phoneCtrl')
+
 
 app.use(express.json());
 
@@ -28,7 +30,8 @@ app.post('/auth/register', register)
 app.post('/auth/login', login)
 app.get('/auth/user_session', userSession)
 app.get('/auth/logout', logout)
-// PhoneFixerCtrl ENDPOINTS
+// phoneCtrl ENDPOINTS
+app.get('/api/all_phones', getAllPhones)
 
 
 app.listen(SERVER_PORT, () => console.log(`Running on Server Port ${SERVER_PORT}`));
