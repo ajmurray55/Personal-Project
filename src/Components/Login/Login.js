@@ -17,6 +17,10 @@ class Login extends Component {
     };
   }
 
+  // componentDidMount(){
+  //   console.log('login mounted')
+  // }
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -55,7 +59,7 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.props.user);
+    // console.log("from login: ", this.props.user);
     return (
       <div className="body">
         {!this.state.register ? (
