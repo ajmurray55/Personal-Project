@@ -70,7 +70,9 @@ class Header extends React.Component {
             this.state.toggleMenu ? "mobile-menu-show" : "mobile-menu-hide"
           }
         >
-          <Link className="title" to="/">Phone Fixer</Link>
+          <Link className="title" to="/">
+            Phone Fixer
+            </Link>
           <Link className="navTitles" to="/about">
             About
           </Link>
