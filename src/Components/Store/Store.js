@@ -99,7 +99,11 @@ class Store extends React.Component {
     });
     const appleMenu = this.state.Apple.map(phone => {
       return (
-        <p className="seperatePhone" onClick={() => this.myPhone(phone.phone_id)} key={phone.phone_id}>
+        <p
+          className="seperatePhone"
+          onClick={() => this.myPhone(phone.phone_id)}
+          key={phone.phone_id}
+        >
           {phone.model} {phone.color}
         </p>
       );
@@ -116,7 +120,11 @@ class Store extends React.Component {
     });
     const samsungMenu = this.state.Samsung.map(phone => {
       return (
-        <p className="seperatePhone" onClick={() => this.myPhone(phone.phone_id)} key={phone.phone_id}>
+        <p
+          className="seperatePhone"
+          onClick={() => this.myPhone(phone.phone_id)}
+          key={phone.phone_id}
+        >
           {phone.model} {phone.color}
         </p>
       );
@@ -133,7 +141,11 @@ class Store extends React.Component {
     });
     const googleMenu = this.state.Google.map(phone => {
       return (
-        <p className="seperatePhone" onClick={() => this.myPhone(phone.phone_id)} key={phone.phone_id}>
+        <p
+          className="seperatePhone"
+          onClick={() => this.myPhone(phone.phone_id)}
+          key={phone.phone_id}
+        >
           {phone.model} {phone.color}
         </p>
       );
@@ -148,15 +160,13 @@ class Store extends React.Component {
         <img className="phoneImage" src={image} alt="phone" />
       </div>
     );
-
-    // window.alert("store!", this.props);
-    // console.log("this.state.phones", this.state.phones);
+    
     const mappedPhones = this.state.phones.map(phone => {
       return (
         <div className="outerContainer">
-          <div>{phone.manufacturer}</div>
-          <div>{phone.model}</div>
-          <div>{phone.color}</div>
+          {phone.manufacturer}
+          {phone.model}
+          {phone.color}
           <img className="phoneImage" src={phone.image} alt="phone" />
         </div>
       );
@@ -168,17 +178,17 @@ class Store extends React.Component {
             <img
               className="PhoneLogo"
               alt="AppleLogo"
-              src="data:image/png;base64,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"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAh1BMVEX///8jHyAAAAAgHB0bFhfx8fESCw35+fkXEhMaFRYGAAARCgz29vYfGhsYEhStrKzAv7+Fg4RUUlJubG3q6uqjoqIuKyzf39/Ozs57enrW1tZHREUMAAU/PD2XlpaysbGPjo67u7tlZGRfXV5TUVGKiYk4NjaAfn8qJifIyMhzcXFFQkNjYWG6Qv/JAAAEp0lEQVR4nO3c2XaiQBAGYClaZBGjoBgV9yVOJu//fANJTIRxOWLFOhX+7zoXXZXeq7HRAAAAAAAAAAAAAAAAAAAAAAAAAACoh7Z0A4R1e1OypRshaTgickK7xjkYR+RaGTuUbomU5oqM9c5OpNsiZP7RB3Imkm6MjJisL52RdGtETNLvFFjpQLo5EqbOUQosepZuj4CokAKLpNsjYEuFFHRi6QY93p9iCiz6I92ih2uldiEFYQ13iSOn1A2epFv0cMPSSKhjN1i5pW5Qv9mgX+oG7kq6RY83CwopsJ2WdIseLykuCjSWbtDjlYYCzaUbJGBZyAHV8rBUmA7qmYLG6HtlNNSVbo2MtXdYEGjal26MkPXHFWJINdwhH0SB6QRE0/pmIJsTN1G8WNZ1FJzXbP7SWtt4vnhdT6J41r3wT28utxuHcslq1m0+rnUPsFwR+YFrQuNmgz9ZnNwQD2c7Isd87J1tL58lBr9lkPR7RJ3iuYjsWSm65mBHQVg8QlphQNFvOEm3Xqh0T/SehoA28+8T4nJNaTkBh43TX/WnqPmpDHxE59PbPOsN7WVM5J35o/cs6K46tdZkn4/O8nwyCZF74U9ywV7xtDD0roVn2ZdydBDqLTyN6fQYv52t9ZJxfHEc3Ejn/dKQMwVZT1C4Y2p1OFOQLQ8K36ZEnetx3cCmnroL5ye6HtcNOq6++aDJm4Jgoq4TNBox60jwNdaexqzdwFf5JmN9Yf9/M1flS71yOf0u4V46nEpezp0Vq6ChdDiVcHaDdCYdTSVdxhzYRjqaal4ZF0atpRef76Rg+9LBVMO5Kjhb6Wiqmft8OdB5bdBo9PhWRjuVDqaijWHLgdqXyynflBgofZjSYpwStb5MKT+6vCsHSqdEzqWRlBZXOO8ONF4m556RA94cKB0LrDnQeXfAmwO1ZUa+HPhKT86ca6P7Ih1NNZzllXAnHU1FnLeJWhfHkLHg7Cv9piPiOztbZiMdTTWoLjQaT4x3aZb7Kh1OJZybJK0doc2aAzORjqeSPetLJJ0feo2uvsy8LQkaRwNngcHK33cr3Chx3ijmTKLwNVLC+zTR8hJ9PWHBuUvKGVfdnMC7Q8iF+mrwAfNgyFCk7G6Rsez6xaOtqk/+eN8nHgSkKgl7rq83jin7ScFBej2kmyn7kQzmN9ufOZCO6kYx75kh52r7xu8HZkV9hfi/3LNiqO8iofyDgHfT+CZlx9sRQoXfdHF3BFpKB1TFhLHOoLXqxro0aK3Cv/KdnDxd2+Rvbb6vfbU+ysl/AIIpBb7Oj1nerXm+5lC5Lh4wjQaVFYYvLJ82keKRkBvdf5Hg6TsolNy9ZVb56w9FdxedtO6Ojt15bqCFdAAcZvckIVhLN5/HqHoS3Kl047nE55Jge06Qpo57bhfhaqw4n3GyJ3R8Mm/bwWCwiJPSL+t9Cn5NL8jNyhtGQxQf/YRouzsiKt830Jtgi3/Ac3C0WbIDmvx/LdSN6LhW6+grNV+1Jd/LQgw7KZnF6QNAf5aQ75jQNg5RT/3W6ITW01s2AvarwaUTUH/ei3a7zYvK20MAAAAAAAAAAAAAAAAAAAAAAAAAAPj0D0fdPqy0Dq1YAAAAAElFTkSuQmCC"
             />
           </button>
-          <button onClick={this.toggleSamsung}>
+          <button className="logoButtons" onClick={this.toggleSamsung}>
             <img
               className="PhoneLogo"
               alt="SamsungLogo"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAmVBMVEX///8UKKARJp8AFJwAHZ1ud78AGJwAAJkKIp5DUK/29/0QJZ8ACpoTKaEAFpzu7/igptMAEJuNlMpRW7HEyeUAH57N0Om2u96lq9b6+/7h4/Kcoc/T1uwABpqwtdva3fBZY7Y2RKpye8AZLaIqOqdJVbB9hcSFjciTmc3AxOI6Sa1mcLursNkrPKje4fBueL8iNKV5gcNgark3wGXjAAAGiklEQVR4nO2Yi3LiuBKGbdlYjuULBgzY4ACBkHAN4f0fbrvblzCTy9aZnHW2av+vaiZCRqL7V6vVsmUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPhPUBwHg/7im5MEi91ukf/5+HwxmcyDbxrxp0xXbux5sXd6bj3IH3oVh/um67XuGcinl18+EZOh7XmeGy1Hdcf9gR4/USOQeebSua1nTah95i+8ND85ukY03jOPk3/W2Q/JH7WvbEKZ8K5ZhiJ1Xdejf+m1+V7EH6lzw1YXYfXYGdaTLHWmGJPp16prUNLjR2okPEzvpHMfyySalZ1rbta/uNWuIiuU8vXwG7H0h7w45H+Wpj79cR7qzlFq2+ZurWx/1Vi0Nra6nMhJXsNxaptVZNv+Y/Wwl8okjqE/ugqdgUePWaIkIufCKjzu+FfomwdqL2iMiioNZpoXwXV5vNPryvWGoiQLs+Vox+YpXXv8HNu2+7QyduUyQ56ozdW3Q47qo2NnLzTQv6sm0dR2l7vpxbS6fK4BielQe+GoRoM8VNy93fJ4pc8d+s9MQvpVjyxZxGSHrhNjz6X1uF+SxeG46skNWXyZeXbKy/zk2W4/Iyf38vCel3RNk0w4fi7i16caRDStHv+iwVhzFJC4RUbfTY/dSmBNHY5INjV1HKesUpe1F++3rMS06gnIOrXepbbHafCamWjETq7kIYeNOVm8x+PY8SV0PtNA+fSTHiXLc9xqwBpWcg4prTj97twXjryT2dGgT8yqyA84JsKkT/q4dYoLPLa4CGnfUFCcjFmdndpxy+IvKo/cLAbPxNdxEM8jxXuoeNOAx1fb6rF0HD3rVAFeOU5S4Tb4vdOs813YRrsVcOSa/GLMhdyKVXYoJO7l4TjklBb+YvunGqTFNVNxYRXeBxokRNF5kfDosgjx+jYAj5VN55SsTKuuhNsqP2S2Dqx5accz0WBdPT1lLEK6ujncv9CApqc9/6EGP0NyERFMun5z4JW6sl5lfZ0mE86dUT6LbT3n/RuOzhIZ1YAiYhFsX+/HzRyfa7BINO+o5L0Guwlz/92K9X8nuSuNqFAumyBkUyn35Ss2uZIm0XKa0/agDvJPJ6JBVo8oVqEUWn65rXu+0MA6GZXm7zXIL2VK6OfunG+ZRrE44EaFfA64ZGPfl7S6nMItLgHk+KNERuIsM0oEkte9dpKZ8XgS5dRV1acaUIFB50g4Ctx3GpxkCqfrnCgkT1piOatSHHtnp3RM8uHI54DVahBsjHuwNoZ6RQPnZpLXapL4IB+/0mAe2u42f69B77pRP6UBuXhN5XyQ8oQrHeUlVfFgTrKuZ11VP8vM39MKUnSIBultcV8Mue5WWoqMrzTIV3S2Jr55nxMp53avwbw/nU775MmA7XcfGvMl4484EbqyQRa1Bk+euoykWpS8HooPuxlDk2xjuymrPtdgzElXefP1Bxpcf0KDZ03loebSaEj2uYfGEDGJN0Bt/rzWYJIq8+wqZ3GrwQNPwgU37RLaDLO/1YDE9Z43H5yNP6LBjEs88UQORNaAqsAmIsJ2e1JJIBpQPKi9UVEiGlAxadVD1Zq3BQtZDeD6Wa5PiflNA2rmqfKHp1YDuWZI2c1XlM5rZd7ydsq3e74jyCGQOKoxhJfVfeEWl4KsQU5XRCPV440G7K/yxvyugPvk8nyUpDKvCi67vgvK2cg/RuttovbuLMWqR1toErfjO0R+Xpmn2ZBLJXnVMS55B8hLD9kVskCcGsyGLOYgEV0K8bdoJ6G779OJL+Cp9Ml92vi9Kyva1JOtBveSgtv3B4rvzM7mlKo6G3fLldOY8mK+2Wcb7pHQKGXh6I5MO4WDfNdo8ODWae9GA2spB4LrsT5pfct6YDeNK1W0rq/Dd03RlXjqVoOd5pFG/tPTbgUggrd3aelGPLpyhivFuKNuLtQTaqX8iqAvSXTMC82Nqq4Nhvwujd+FZXpZT5xfdWaMUsa4beW30mVZSqg/cqvUZV2a7lTo+sb4bup1LwFx3NfvVAfVYX/kW3RlSTHjCzX7eebWNG+6gl8v2807VS8a7t4m3l0vmev6m9f2AjAfEzKkGFc0T4JJb3/a7K/HzjdCzf/p3fpksvjt2psn5+KnnAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8G/mL6lmdMkKrZuFAAAAAElFTkSuQmCC"
             />
           </button>
-          <button onClick={this.toggleGoogle}>
+          <button className="logoButtons" onClick={this.toggleGoogle}>
             <img
               className="PhoneLogo"
               alt="GoogleLogo"
@@ -187,7 +197,7 @@ class Store extends React.Component {
           </button>
         </div>
 
-        <nav 
+        <nav
           className={
             this.state.toggleApple ? "toggle-Phone-show" : "toggle-Phone-hide"
           }

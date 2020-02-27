@@ -69,7 +69,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 25tvw;
+    /* width: 25vw; */
     margin: 0 20px;
     /* margin-left: 50px; */
     text-decoration: none;

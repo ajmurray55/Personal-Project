@@ -3,16 +3,27 @@
 }
 
 body {
-    background-color: whitesmoke;
-}
+    background-color: lightcyan;
+    font-family: 'Krona One';
+    display: flex;
+     /* align-items: center;
+    justify-content: center; */
+} 
 
+/* .list{
+    width: 800px;
+    height: 1000px;
+    background-color: cornflowerblue;
+} */
 .outerContainer {
 height: 550px;
 display: flex;
 align-items: center;
-justify-content: space-around;
+justify-content: center;
 flex-direction: column;
 flex-wrap: wrap;
+background-color: lightcyan;
+/* font-family: 'Krona One'; */
 }
 
 .manufactButtons {
@@ -20,32 +31,43 @@ flex-wrap: wrap;
     height: 15vh;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(190, 179, 106);
+    background-color: cadetblue;
+    
 }
 
 .toggle-Phone-show{
     text-decoration: none;
     display: inline-block;
-    height: 400px;
+    height: 270px;
     width: 200px;
-    background-color: black;
+    background-color: lightcyan;
     animation-name: drop;
-    position: absolute;
-    z-index: 1;
+    /* position: fixed; */
+    animation-duration: .5s;
+    /* z-index: 0; */
     overflow: auto;
+    border: black;
+    
 }
+
 .toggle-Phone-hide {
     display: none;
 }
 
 .PhoneLogo {
     height: 100px;
+  
 }
 
 .seperatePhone {
     margin: 5px 5px;
-    background-color: teal;
-    color: gold;
+    /* background-color: teal; */
+    color: black;
+    font-family: 'Krona One';
+    background-color: cadetblue;
+}
+.seperatePhone:hover{
+    color: blue;
 }
 
 @keyframes drop {
@@ -53,6 +75,27 @@ flex-wrap: wrap;
         height: 0;
     }
     100% {
+        height: 300px;
+        }
+}
+
+@media screen and (max-width: 700px){
+    .phoneImage{
+        height: 300px;
+    }
+    .PhoneLogo{
+        /* width: 100px; */
+        height: 50px;
+    }
+    .toggle-Phone-show{
+        text-decoration: none;
+        display: inline-block;
         height: 200px;
+        width: 100vw;
+        animation-name: drop;
+        /* position: absolute; */
+        /* animation-duration: .5s; */
+        /* z-index: 1; */
+        overflow: scroll;
     }
 }
