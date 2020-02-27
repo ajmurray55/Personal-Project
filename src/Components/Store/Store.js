@@ -50,7 +50,7 @@ class Store extends React.Component {
   }
 
   toggleApple() {
-    this.getAllPhones("Apple");
+    // this.getAllPhones("Apple");
     this.setState({
       toggleApple: !this.state.toggleApple,
       toggleSamsung: false,
@@ -58,7 +58,7 @@ class Store extends React.Component {
     });
   }
   toggleSamsung() {
-    this.getAllPhones("Samsung");
+    // this.getAllPhones("Samsung");
     this.setState({
       toggleSamsung: !this.state.toggleSamsung,
       toggleApple: false,
@@ -66,7 +66,7 @@ class Store extends React.Component {
     });
   }
   toggleGoogle() {
-    this.getAllPhones("Google");
+    // this.getAllPhones("Google");
     this.setState({
       toggleGoogle: !this.state.toggleGoogle,
       toggleApple: false,
