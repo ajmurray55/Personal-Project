@@ -12,3 +12,12 @@ CREATE TABLE phones(
     color VARCHAR(20),
     image TEXT
 );  
+
+CREATE TABLE cart(
+    cart_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    phone_id INT REFERENCES phones(phone_id),
+    screen BOOLEAN default false,
+    battery BOOLEAN default false,
+    total MONEY
+);

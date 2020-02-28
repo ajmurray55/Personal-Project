@@ -10,5 +10,6 @@ module.exports = {
         const {id} = req.params;
         const phone = await db.get_one_phone(id)
         res.status(200).send(phone[0])
-    }
+    },
+    
 }

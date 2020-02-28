@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { setUser } from "../../redux/reducer";
+import Header from "../Header/Header"
 import "./Login.css";
 
 class Login extends Component {
@@ -29,7 +30,7 @@ class Login extends Component {
 
   login = (username, password) => {
     let body = { username, password };
-    console.log("body", body);
+    // console.log("body", body);
     axios.post("/auth/login", body)
     .then(res => {
       this.props.setUser(res.data);
@@ -60,7 +61,9 @@ class Login extends Component {
 
   render() {
     // console.log("from login: ", this.props.user);
+    
     return (
+      
       <div className="body">
         {!this.state.register ? (
           <div className="loginOuterBox">

@@ -2,35 +2,76 @@ import React from "react";
 import "./Header.css";
 import { connect } from "react-redux";
 import { getSession } from "../../redux/reducer";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import axios from "axios";
 
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      toggleMenu: false
+      toggleMenu: false,
+      logout: false,
+      navigate: false
     };
+    this.logout = this.logout.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
   componentDidMount() {
     this.props.getSession();
   }
+
+  updateUser(user) {
+    this.setState({
+      user
+    });
+  }
+
   toggleMenuFunc() {
     this.setState({
       toggleMenu: !this.state.toggleMenu
     });
   }
+  logout() {
+    axios.get("/auth/logout").then(() => {
+      // this.props.setUser(null)
+      // this.props.history.push("/")
+      console.log(this.props)
+      this.setState({
+        navigate: true
+      })
+    })
+    // this.setState({
+    //   loggedIn: false
+    // })
+    // axios
+    //   .get("/auth/logout")
+    //   .then(() => {
+    //     this.props.updateUser({});
+    //   }).then(res => {
+    //     this.props.setUser(res.data);
+        // this.props.history.push("/")
+    //   })
+    //   .catch(err => console.log(err));
+  }
 
   render() {
     console.log(this.props);
+    const { navigate } = this.state;
+
+    if (navigate){
+      return <Redirect to="/" push={true} />
+    }
+
     return (
       <div className="headDiv">
         <header>
-            <img
+          <img
             className="phoneImg"
             alt="phoneImg"
-            src="https://www.svgrepo.com/show/6099/broken-phone-in-two-parts.svg"/>
-            {/* <div className="titleContainer"> */}
+            src="https://www.svgrepo.com/show/6099/broken-phone-in-two-parts.svg"
+          />
+          {/* <div className="titleContainer"> */}
           <Link className="title" to="/">
             Phone Fixer
           </Link>
@@ -48,12 +89,25 @@ class Header extends React.Component {
               Appointments
             </Link>
           </nav>
-            
+
           {this.props.loading ? (
             <h1>waiting...</h1>
           ) : this.props.loggedIn ? (
-            <h1 className="welcome">Welcome {this.props.user.username}</h1>
-          ) : null}
+            <h1 className="welcome">
+              Welcome {this.props.user.username}{" "}
+              
+                <button type="submit" onClick= {() => {
+                  this.setState({
+                    loggedIn: false
+                  })
+                  this.logout()
+                }}>
+                  Log Out
+                </button>
+              
+            </h1>
+          ) : null  }
+
           <div className="buttondiv">
             <button className="menuButton">
               <img
@@ -72,7 +126,7 @@ class Header extends React.Component {
         >
           <Link className="title" to="/">
             Phone Fixer
-            </Link>
+          </Link>
           <Link className="navTitles" to="/about">
             About
           </Link>

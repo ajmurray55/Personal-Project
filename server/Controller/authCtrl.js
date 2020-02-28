@@ -29,7 +29,7 @@ module.exports = {
         const db = req.app.get('db');
         const { username, password, email } = req.body;
         const foundUser = await db.select_user(email);
-        console.log('foundUser', foundUser)
+        // console.log('foundUser', foundUser)
         if (foundUser.length){
             res.status(409).send('That user already exists! Please use an alternate EMAIL')
         } else {
@@ -48,9 +48,11 @@ module.exports = {
 
 
     logout: async (req, res, next) => {
+        console.log("session",req.session)
         req.session.destroy();
-        res.sendStatus(200);
-        res.redirect('http://localhost:3000')
+        res.status(200).send([]);
+        console.log("destroyed", req.session)
+        // res.redirect('http://localhost:3000')
     },
 
 
