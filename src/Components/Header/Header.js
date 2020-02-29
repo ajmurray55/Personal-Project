@@ -66,15 +66,16 @@ class Header extends React.Component {
     return (
       <div className="headDiv">
         <header>
-          <img
+          <Link to="/">
+            <img
             className="phoneImg"
             alt="phoneImg"
             src="https://www.svgrepo.com/show/6099/broken-phone-in-two-parts.svg"
-          />
+          /></Link>
           {/* <div className="titleContainer"> */}
-          <Link className="title" to="/">
+          <h1 className="title" to="/">
             Phone Fixer
-          </Link>
+          </h1>
           <nav className="navigation">
             <Link className="navTitles" to="/about">
               About
@@ -88,15 +89,12 @@ class Header extends React.Component {
             <Link className="navTitles" to="/appointments">
               Appointments
             </Link>
-          </nav>
-
-          {this.props.loading ? (
+        {/* <div className="username"> */}
+        {this.props.loading ? (
             <h1>waiting...</h1>
           ) : this.props.loggedIn ? (
             <h1 className="welcome">
-              Welcome {this.props.user.username}{" "}
-              
-                <button type="submit" onClick= {() => {
+               <button className="logOut"type="submit" onClick= {() => {
                   this.setState({
                     loggedIn: false
                   })
@@ -104,9 +102,13 @@ class Header extends React.Component {
                 }}>
                   Log Out
                 </button>
+              Welcome {this.props.user.username}{" "}
               
             </h1>
           ) : null  }
+        {/* </div> */}
+        </nav>
+
 
           <div className="buttondiv">
             <button className="menuButton">
@@ -124,8 +126,8 @@ class Header extends React.Component {
             this.state.toggleMenu ? "mobile-menu-show" : "mobile-menu-hide"
           }
         >
-          <Link className="title" to="/">
-            Phone Fixer
+          <Link className="navTitles" to="/">
+            Home
           </Link>
           <Link className="navTitles" to="/about">
             About

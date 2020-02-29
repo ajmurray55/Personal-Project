@@ -1,13 +1,20 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-function Cart(){
-    console.log('I am so mad right now you better work')
+class Cart extends Component{
+    constructor(){
+        super()
+        this.state = {
+            
+        }
+    }
+
+    render(){
     return(
         <div>
-            
             Cart Page
         </div>
     )
+    }
 }
 
 export default Cart

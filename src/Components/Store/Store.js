@@ -89,14 +89,15 @@ class Store extends React.Component {
   };
 
   render() {
+   
     // console.log("found phone", this.state.foundPhone);
     const appleDisplay = this.state.Apple.map(phone => {
       return (
         <div className="outerContainer">
-          <div>{phone.manufacturer}</div>
-          <div>{phone.model}</div>
-          <div>{phone.color}</div>
-          <img className="phoneImage" src={phone.image} alt="phone" />
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.manufacturer}</div>
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.model}</div>
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.color}</div>
+          <img onClick={() => this.myPhone(phone.phone_id)} className="phoneImage" src={phone.image} alt="phone" />
         </div>
       );
     });
@@ -114,10 +115,10 @@ class Store extends React.Component {
     const samsungDisplay = this.state.Samsung.map(phone => {
       return (
         <div className="outerContainer">
-          <div>{phone.manufacturer}</div>
-          <div>{phone.model}</div>
-          <div>{phone.color}</div>
-          <img className="phoneImage" src={phone.image} alt="phone" />
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.manufacturer}</div>
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.model}</div>
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.color}</div>
+          <img onClick={() => this.myPhone(phone.phone_id)} className="phoneImage" src={phone.image} alt="phone" />
         </div>
       );
     });
@@ -128,17 +129,17 @@ class Store extends React.Component {
           onClick={() => this.myPhone(phone.phone_id)}
           key={phone.phone_id}
         >
-          {phone.model} {phone.color}
+      {phone.model} {phone.color}
         </p>
       );
     });
     const googleDisplay = this.state.Google.map(phone => {
       return (
         <div className="outerContainer">
-          <div>{phone.manufacturer}</div>
-          <div>{phone.model}</div>
-          <div>{phone.color}</div>
-          <img className="phoneImage" src={phone.image} alt="phone" />
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.manufacturer}</div>
+          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.model}</div>
+          {/* <div onClick={() => this.myPhone(phone.phone_id)}>{phone.color}</div> */}
+          <img onClick={() => this.myPhone(phone.phone_id)} className="phoneImage" src={phone.image} alt="phone" />
         </div>
       );
     });
@@ -149,25 +150,27 @@ class Store extends React.Component {
           onClick={() => this.myPhone(phone.phone_id)}
           key={phone.phone_id}
         >
-          {phone.model} {phone.color}
+          {phone.model} 
+          {/* {phone.color} */}
         </p>
       );
     });
 
     const { image, model, manufacturer, color } = this.state.foundPhone;
     const mappedMyPhone = (
-      <div>
-        <p
+      <div className="chosenPhone">
+        <p className="myPhone"
         onClick={this.myPhone}
-        >{manufacturer}
-           {model}
-           {color}
+        > {manufacturer} {model} 
+        {/* {color} */}
           
           </p>
         <img className="phoneImage" 
           src={image} 
           alt="phone" 
           />
+
+        
       </div>
     );
     
@@ -182,7 +185,7 @@ class Store extends React.Component {
       );
     });
     return (
-      <div>
+      <div className="dahParent">
         <div className="manufactButtons">
             <img
               className="PhoneLogo"
@@ -226,16 +229,38 @@ class Store extends React.Component {
         >
           {googleMenu}
         </nav>
+        
+            {
+            this.state.toggleApple
+          ? 
+          <div className="sideScroll">{appleDisplay}</div>
+          : 
+          this.state.toggleSamsung
+          ? 
+          <div className="sideScroll">{samsungDisplay}</div>
+          : 
+          this.state.toggleGoogle
+          ? 
+          <div className="sideScroll">{googleDisplay}</div>
+          : 
+          this.state.selectedPhone
+          ? 
+          <div className="fix">
+          <div>{mappedMyPhone} </div>
+          <h1 className="screenOrBattery"> What will you like done on your phone?
+          
+          <label className="products">Screen<input className="productBox" type="checkbox" value= "screen"/></label>
+          <label className="products">Battery<input className="productBox" type="checkbox" value= "battery"/></label>
+          
+          <label className="totalCost">Total Cost</label>
+          
+          </h1>
+          </div>
 
-        {this.state.toggleApple
-          ? appleDisplay
-          : this.state.toggleSamsung
-          ? samsungDisplay
-          : this.state.toggleGoogle
-          ? googleDisplay
-          : this.state.selectedPhone
-          ? mappedMyPhone
+          
           : null}
+        
+      
       </div>
     );
   }
