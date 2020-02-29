@@ -19,13 +19,40 @@ class Store extends React.Component {
       Samsung: [],
       Google: [],
       foundPhone: {},
-      selectedPhone: false
+      selectedPhone: false,
+      screen: false,
+      battery: false,
+      total: null
     };
     this.getAllPhones = this.getAllPhones.bind(this);
     this.toggleApple = this.toggleApple.bind(this);
     this.toggleSamsung = this.toggleSamsung.bind(this);
     this.toggleGoogle = this.toggleGoogle.bind(this);
+    this.screen = this.screen.bind(this);
+    this.battery = this.battery.bind(this);
   }
+
+  addToCart  = async (phone_id) => {
+    const {screen, battery} = this.state
+    const res = await axios.post(`/api/cart/${phone_id}`, {screen, battery})
+    
+    console.log("this is RES", res)
+   
+  }
+
+  screen() {
+    this.setState({
+      screen: true
+    })
+  }
+
+  battery() {
+    this.setState({
+      battery: true
+    })
+  }
+
+
 
   getAllPhones = async manufacturer => {
     // console.log("before phones", this.state.phones);
@@ -87,6 +114,14 @@ class Store extends React.Component {
       toggleGoogle: false
     });
   };
+
+  total() {
+    this.setState({
+      screen: true,
+      battery: true
+    })
+  }
+  
 
   render() {
    
@@ -156,7 +191,8 @@ class Store extends React.Component {
       );
     });
 
-    const { image, model, manufacturer, color } = this.state.foundPhone;
+    const { phone_id, image, model, manufacturer, color, screen_price, battery_price } = this.state.foundPhone;
+    console.log('found phone', this.state.foundPhone)
     const mappedMyPhone = (
       <div className="chosenPhone">
         <p className="myPhone"
@@ -249,10 +285,24 @@ class Store extends React.Component {
           <div>{mappedMyPhone} </div>
           <h1 className="screenOrBattery"> What will you like done on your phone?
           
-          <label className="products">Screen<input className="productBox" type="checkbox" value= "screen"/></label>
-          <label className="products">Battery<input className="productBox" type="checkbox" value= "battery"/></label>
+            <label className="products">Screen<input className="productBox" type="checkbox" value= "screen" onClick={this.screen}/>{this.state.screen}</label>
+            <label className="products">Battery<input className="productBox" type="checkbox" value= "battery" onClick={this.battery}/>{this.state.battery}</label>
           
-          <label className="totalCost">Total Cost</label>
+            <label className="totalCost">Total Cost</label>
+            <button onClick={() => this.addToCart(phone_id)}>Total</button>
+            
+            {
+            this.screen
+            ?
+            screen_price
+            :
+            this.battery
+            ?
+            battery_price
+            :
+            null
+          }
+          
           
           </h1>
           </div>

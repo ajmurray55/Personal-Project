@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { CardForm } from 'react-payment';
 
 class Cart extends Component{
     constructor(){
@@ -6,8 +7,9 @@ class Cart extends Component{
         this.state = {
             
         }
+        
     }
-
+  
     render(){
     return(
         <div>
