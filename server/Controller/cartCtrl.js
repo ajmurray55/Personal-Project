@@ -5,10 +5,25 @@ module.exports = {
     const {user_id} = req.session.user
     console.log("user",req.session)
     const {screen, battery} = req.body;
-    const total = await db.sum_total(id);
-    console.log('total', total, total[0].sum)
-    const addCart = await db.add_To_Cart([user_id, id, screen, battery, total[0].sum]);
-    return res.status(200).send(addCart);
+    const price = await db.sum_total(id);
+    let total = 0;
+    if(screen) {
+        total += +price[0].screen_price
+        console.log("screen_price", price[0].screen_price)
+    }
+    if (battery) {
+        total += +price[0].battery_price
+        console.log("battery_price", price[0].battery_price)
+    }
+
+    console.log('total', price, total)
+    const addCart = await db.add_To_Cart([user_id, id, screen, battery, total]);
+    console.log('addCArt', addCart[0])
+    res.status(200).send(addCart[0]);
   },
+
+  
+
+
 
 }

@@ -1,270 +1,399 @@
 .phoneImage {
-    height: 400px;
+  height: 450px;
 }
 
 body {
-    background-color: white;
-    font-family: 'Krona One';
-    scrollbar-width: auto;
-    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-    
-} 
+  background-color: white;
+  font-family: "Krona One";
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+.message-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.message-hide {
+  display: none;
+}
 html {
-    --scrollbarBG: #CFD8DC;
-    --thumbBG: #90A4AE;
-  }
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #90a4ae;
+}
 body::-webkit-scrollbar {
-    width: 15px;
-  }
- 
+  width: 20px;
+}
+
 body::-webkit-scrollbar-track {
-    background: var(--scrollbarBG);
-  }
+  background: var(--scrollbarBG);
+}
 body::-webkit-scrollbar-thumb {
-    background-color: var(--thumbBG) ;
-    border-radius: 6px;
-    border: 3px solid var(--scrollbarBG);
-  }
-  .sideScroll::-webkit-scrollbar {
-    width: 15px;
-  }
- 
-  .sideScroll::-webkit-scrollbar-track {
-    background: var(--scrollbarBG);
-  }
-  .sideScroll::-webkit-scrollbar-thumb {
-    background-color: var(--thumbBG) ;
-    border-radius: 6px;
-    border: 3px solid var(--scrollbarBG);
-  }
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+.sideScroll::-webkit-scrollbar {
+  width: 20px;
+}
+
+.sideScroll::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.sideScroll::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
 
 .sideScroll {
-    height: 1000px;
-    width: 1000px;
-    position: absolute;
-    left: 100px;
-    top: 250px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transform: rotate(-90deg) translateY(-600px);
-    transform-origin: right top;
-    scrollbar-width: auto;
-    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-    padding-left: 80px;
-    margin-right: 600px;
-  
-    
+  height: 900px;
+  /* width: 600px; */
+  position: absolute;
+  left: 100px;
+  top: 245px;
+  /* margin: -100px; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: rotate(-90deg) translateY(-600px);
+  transform-origin: right top;
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  /* padding-right: 500px; */
+  /* margin-right: 500px; */
+  /* margin-bottom: 600px; */
+  /* border: 2px solid black; */
 }
 
 .sideScroll > div {
-    transform: rotate(90deg);
-    transform-origin: right top;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    /* align-items: flex-start; */
-
+  transform: rotate(90deg);
+  transform-origin: right top;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
 }
 
 .outerContainer {
-height: 500px;
-width: 500px;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-background-color: white;
-margin-left: 420px;
-
-
+  height: 500px;
+  /* width: 500px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  margin-left: 420px;
+  /* border: 2px solid black; */
 }
 
 .manufactButtons {
-    display: flex;
-    height: 15vh;
-    justify-content: space-around;
-    align-items: center;
-    /* background-color: cadetblue; */
-    
+  display: flex;
+  height: 15vh;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: cadetblue; */
 }
 .chosenPhone {
-    display: flex;
-    height: 600px;
-    width: 500px;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color:white;
-    border-radius: 50px;
-    margin-left: 10px;
-    border: 3px solid black;
+  display: flex;
+  height: 600px;
+  width: 500px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 50px;
+  margin-left: 10px;
+  border: 3px solid black;
 }
 .dahParent {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
 }
 
 .fix {
-    display: flex;
+  display: flex;
 }
 .screenOrBattery {
-    height: 600px;
-    width: 500px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    background-color:white;
-    border-radius: 50px;
-    margin-left: 200px;
-    padding-top: 50px;
-    border: 3px solid black;
-
+  height: 600px;
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 50px;
+  margin-left: 200px;
+  padding-top: 50px;
+  border: 3px solid black;
 }
 
 .products {
-   font-size: larger;
-    display: flex;
-    padding-top: 20px;
-    margin-top: 50px;
+  font-size: larger;
+  display: flex;
+  padding-top: 20px;
+  margin-top: 50px;
 }
-.productBox{
-    width: 30px; 
-    height: 30px;
+.productBox {
+  width: 30px;
+  height: 30px;
 }
-.totalCost{
-    font-size: 25px;
-    font-weight: 800;
-    margin-top: 20px;
-    text-decoration: underline;
+.totalCost {
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 20px;
+  text-decoration: underline;
 }
 .myPhone {
-    text-decoration: black  underline overline;
-    font-size: larger;
+  text-decoration: black underline overline;
+  font-size: larger;
 }
 
-.toggle-Phone-show{
-    text-decoration: none;
-    display: inline-block;
-    height: 500px;
-    /* width: 200px; */
-    justify-content: flex-end;
-    align-self: baseline;
-    right:0px;
-    background-color: white;
-    animation-name: drop;
-    /* position: fixed; */
-    /* animation-duration: .5s; */
-    /* z-index: 0; */
-    overflow: auto;
-    border: black;
-    scrollbar-width: auto;
-    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-    
-    
+.toggle-Apple-show {
+  text-decoration: none;
+  display: inline-block;
+  height: 255px;
+  /* width: 200px; */
+  justify-content: flex-end;
+  align-self: baseline;
+  right: 0px;
+  background-color: white;
+  animation-name: drop;
+  /* position: fixed; */
+  /* animation-duration: .5s; */
+  /* z-index: 0; */
+  overflow: auto;
+  border: black;
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
 }
-.toggle-Phone-show::-webkit-scrollbar {
-    width: 11px;
-  }
- 
-  .toggle-Phone-show::-webkit-scrollbar-track {
-    background: var(--scrollbarBG);
-  }
-  .toggle-Phone-show::-webkit-scrollbar-thumb {
-    background-color: var(--thumbBG) ;
-    border-radius: 6px;
-    border: 3px solid var(--scrollbarBG);
-  }
+.toggle-Apple-show::-webkit-scrollbar {
+  width: 11px;
+}
 
-.toggle-Phone-hide {
-    display: none;
+.toggle-Apple-show::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.toggle-Apple-show::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.toggle-Apple-hide {
+  display: none;
+}
+
+.toggle-Samsung-show {
+  text-decoration: none;
+  display: inline-block;
+  height: 500px;
+  /* width: 200px; */
+  justify-content: flex-end;
+  align-self: baseline;
+  right: 0px;
+  background-color: white;
+  animation-name: drop;
+  /* position: fixed; */
+  /* animation-duration: .5s; */
+  /* z-index: 0; */
+  overflow: auto;
+  border: black;
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.toggle-Samsung-show::-webkit-scrollbar {
+  width: 11px;
+}
+
+.toggle-Samsung-show::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.toggle-Samsung-show::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.toggle-Samsung-hide {
+  display: none;
+}
+
+.toggle-Google-show {
+  text-decoration: none;
+  display: inline-block;
+  height: 150px;
+  /* width: 200px; */
+  justify-content: flex-end;
+  align-self: baseline;
+  right: 0px;
+  background-color: white;
+  animation-name: drop;
+  /* position: fixed; */
+  /* animation-duration: .5s; */
+  /* z-index: 0; */
+  overflow: auto;
+  border: black;
+  scrollbar-width: auto;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.toggle-Google-show::-webkit-scrollbar {
+  width: 11px;
+}
+
+.toggle-Google-show::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+.toggle-Google-show::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+.toggle-Google-hide {
+  display: none;
 }
 
 .PhoneLogo {
-    height: 100px;
-    margin: 200px;
-    display: flex;
-    justify-content: space-around;
-    /* background-color: cadetblue; */
-    /* border: 100px cadetblue; */
-  
+  height: 100px;
+  margin: 200px;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: cadetblue; */
+  /* border: 100px cadetblue; */
 }
 .PhoneLogo:hover {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .seperatePhone {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 5px 5px;
+  color: black;
+  font-family: "Krona One";
+  /* border: solid black 2px; */
+}
+.seperatePhone:hover {
+  color: blue;
+}
+
+.addToCart {
+    /* background-color: white; */
+    /* border: white; */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    font-family: "Krona One";
+
+}
+.addToCart:hover {
+    height: 53px;
+    width: 53px;
+}
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0px;
+}
+
+.bottomButtons {
+    width: 400px;
+    height: 200px;
+    /* background-color: red; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.money {
+  padding-top: 20px;
+}
+.nextButton{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    /* margin-top: 80px;
+    margin-left: 170px; */
+    /* position: fixed; */
+}
+.nextButton:hover{
+    width: 33px;
+    height: 33px;
+}
+@keyframes drop {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dahParent {
+    width: 100vw;
+  }
+  .phoneImage {
+    height: 275px;
+  }
+  .PhoneLogo {
+    height: 40px;
+  }
+  .PhoneLogo:hover {
+    height: 50px;
+  }
+  .sideScroll {
+    width: 450px;
+    height: 100vh;
+  }
+  .sideScroll > div {
+    margin-right: -150px;
+    margin-bottom: -300px;
+  }
+  .manufactButtons {
+    width: 700px;
     display: flex;
     align-items: center;
-    justify-content: start;
-    margin: 5px 5px;
-    color: black;
-    font-family: 'Krona One';
-}
-.seperatePhone:hover{
-    color: blue;
-}
-
-@keyframes drop {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: 300px;
-        }
-}
-
-@media screen and (max-width: 700px){
-    .dahParent {
-        width: 100vw;
-    }
-    .phoneImage{
-        height: 275px;
-    }
-    .PhoneLogo{
-        height: 40px;
-    }
-    .PhoneLogo:hover {
-        height: 50px;
-    }
-    .sideScroll {
-        width: 450px;
-        height: 100vh;
-    }
-    .sideScroll > div {
-        margin-right: -150px;
-        margin-bottom: -300px;
-        background-color: lawngreen;
-
-    }
-
-    .toggle-Phone-show{
-        text-decoration: none;
-        display: inline-block;
-        height: 15vh;
-        width: 200px;
-        animation-name: drop;
-        /* position: absolute; */
-        /* animation-duration: .5s; */
-        /* z-index: 1; */
-        overflow: scroll;
-        background-color: lightblue;
-        border-radius: 5px;
-        border-top:20px darkblue;
-    }
-    .seperatePhone {
-        font-size: 10px;
-        border: 5px blue;
-        /* background-color: red; */
-    }
-    .outerContainer{
-        display: flex;
-        height: 100vh;
-    }
-   
+    justify-content: space-around;
+  }
+  .toggle-Phone-show {
+    text-decoration: none;
+    display: inline-block;
+    height: 15px;
+    width: 200px;
+    animation-name: drop;
+    position: absolute;
+    animation-duration: 0.5s;
+    z-index: 1;
+    overflow: scroll;
+    background-color: lightblue;
+    border-radius: 5px;
+    border-top: 20px darkblue;
+  }
+  .seperatePhone {
+    font-size: 10px;
+    border: 5px blue;
+    /* background-color: red; */
+  }
+  .outerContainer {
+    display: flex;
+    height: 100vh;
+    background-color: red;
+  }
 }

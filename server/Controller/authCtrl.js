@@ -50,9 +50,8 @@ module.exports = {
     logout: async (req, res, next) => {
         console.log("session",req.session)
         req.session.destroy();
-        res.status(200).send([]);
-        console.log("destroyed", req.session)
-        // res.redirect('http://localhost:3000')
+        res.sendstatus(200)
+       
     },
 
 

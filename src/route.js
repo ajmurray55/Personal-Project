@@ -10,7 +10,6 @@ import Appointment from './Components/Appointment/Appointment';
 export default( 
        <Switch>
         <Route exact path="/" component={Login}/>
-        <Route path="/app" component={App} />
         <Route path="/store" component={Store}/>
         <Route path="/cart" component={Cart}/>
         <Route path="/about" component={About}/>

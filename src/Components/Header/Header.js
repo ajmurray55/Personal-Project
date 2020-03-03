@@ -1,17 +1,14 @@
 import React from "react";
 import "./Header.css";
 import { connect } from "react-redux";
-import { getSession } from "../../redux/reducer";
-import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
+import { getSession, setUser, logout } from "../../redux/reducer";
+import { Link, withRouter } from "react-router-dom";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleMenu: false,
-      logout: false,
-      navigate: false
+      toggleMenu: false
     };
     this.logout = this.logout.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -27,51 +24,29 @@ class Header extends React.Component {
     });
   }
 
-  toggleMenuFunc() {
+  toggleMenuFunc = () => {
     this.setState({
       toggleMenu: !this.state.toggleMenu
     });
-  }
+  };
   logout() {
-    axios.get("/auth/logout").then(() => {
-      // this.props.setUser(null)
-      // this.props.history.push("/")
-      console.log(this.props)
-      this.setState({
-        navigate: true
-      })
-    })
-    // this.setState({
-    //   loggedIn: false
-    // })
-    // axios
-    //   .get("/auth/logout")
-    //   .then(() => {
-    //     this.props.updateUser({});
-    //   }).then(res => {
-    //     this.props.setUser(res.data);
-        // this.props.history.push("/")
-    //   })
-    //   .catch(err => console.log(err));
+    this.props.logout()
+    this.props.history.push('/')
   }
 
   render() {
     console.log(this.props);
-    const { navigate } = this.state;
-
-    if (navigate){
-      return <Redirect to="/" push={true} />
-    }
-
+  
     return (
       <div className="headDiv">
         <header>
           <Link to="/">
             <img
-            className="phoneImg"
-            alt="phoneImg"
-            src="https://www.svgrepo.com/show/6099/broken-phone-in-two-parts.svg"
-          /></Link>
+              className="phoneImg"
+              alt="phoneImg"
+              src="https://www.svgrepo.com/show/6099/broken-phone-in-two-parts.svg"
+            />
+          </Link>
           {/* <div className="titleContainer"> */}
           <h1 className="title" to="/">
             Phone Fixer
@@ -89,26 +64,25 @@ class Header extends React.Component {
             <Link className="navTitles" to="/appointments">
               Appointments
             </Link>
-        {/* <div className="username"> */}
-        {this.props.loading ? (
-            <h1>waiting...</h1>
-          ) : this.props.loggedIn ? (
-            <h1 className="welcome">
-               <button className="logOut"type="submit" onClick= {() => {
-                  this.setState({
-                    loggedIn: false
-                  })
-                  this.logout()
-                }}>
-                  Log Out
-                </button>
-              Welcome {this.props.user.username}{" "}
-              
-            </h1>
-          ) : null  }
-        {/* </div> */}
-        </nav>
-
+            {/* <div className="username"> */}
+            {this.props.loading ? (
+              <h1>waiting...</h1>
+            ) : this.props.loggedIn ? (
+              <h1 className="welcome">
+                {" "}
+                Welcome {this.props.user.username}{" "}
+                
+                  <button
+                    className="logOut"
+                    type="submit"
+                    onClick={() => this.logout()}
+                  >
+                    Log Out
+                  </button>
+               
+              </h1>
+            ) : null}
+          </nav>
 
           <div className="buttondiv">
             <button className="menuButton">
@@ -150,7 +124,9 @@ class Header extends React.Component {
 const mapStatetoProps = state => state;
 
 const mapDispatchToProps = {
-  getSession
+  getSession,
+  setUser,
+  logout
 };
 
-export default connect(mapStatetoProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(Header));
