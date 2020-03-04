@@ -1,0 +1,8 @@
+.phoneImage {
+    height: 500px;
+}
+
+.totalCost {
+display: flex;
+flex-direction: column;
+}

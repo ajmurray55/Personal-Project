@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./Cart.css";
 
 class Cart extends Component {
   constructor(props) {
@@ -47,8 +48,6 @@ class Cart extends Component {
   // }
 
   render() {
-   
-
     return (
       <div>
         {/* <CardForm
@@ -56,35 +55,29 @@ class Cart extends Component {
             getName={true}
             getZip={true}
             /> */}
-
-          <div>{this.state.cart.manufacturer}</div>
-          <div>{this.state.cart.model}</div>
-          <img src={this.state.cart.image}/>
+        <div>
+          <h1>{this.state.cart.manufacturer}</h1>
+          <h3>{this.state.cart.model}</h3>
+          <img className="phoneImage" src={this.state.cart.image} />
           <div>
-              
-            {
-                this.state.cart.screen
-                ?
-                <div>Screen Price
-                    {this.state.cart.screen_price}
-                </div>
-                :
-                null
-            }
-            
-            {
-                this.state.cart.battery
-                ?
-            <div>Battery Price 
-                {this.state.cart.battery_price}</div>
-                :
-                null
-            }
-
-
-              Total Cost{this.state.cart.total}
-              
+            {this.state.cart.screen ? (
+              <div>
+                Screen Price: 
+                {this.state.cart.screen_price}
               </div>
+            ) : null}
+
+            {this.state.cart.battery ? (
+              <div>
+                Battery Price: 
+                {this.state.cart.battery_price}
+              </div>
+            ) : null}
+
+            <h1 className="totalCost">Total Cost</h1>
+            {this.state.cart.total}
+          </div>
+        </div>
       </div>
     );
   }

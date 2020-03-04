@@ -1,0 +1,49 @@
+.videoList{
+    display: flex;
+    /* flex-direction: column; */
+    /* width: 100vw; */
+    height: 15vh;
+    /* height: 90vh; */
+    /* background-color: red; */
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: solid black 2px;
+}
+
+.Video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* height:50vh ;
+    width: 50vw; */
+    z-index: 1;
+    margin-top: 20vh;
+}
+
+.Link {
+    /* height: 30vw; */
+    /* width: 33.3vw; */
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 30px; */
+}
+.Link:hover {
+    color: lightseagreen;
+}
+
+.Video-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 530px;
+}
+
+.Video-hide {
+    display: none;
+}
+
+

@@ -10,7 +10,9 @@ CREATE TABLE phones(
     manufacturer VARCHAR(15),
     model VARCHAR(40),
     color VARCHAR(20),
-    image TEXT
+    image TEXT,
+    screen_price NUMERIC(5,2),
+    battery_price NUMERIC(5,2)
 );  
 
 CREATE TABLE cart(
