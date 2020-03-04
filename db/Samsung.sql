@@ -9,4 +9,4 @@ VALUES
 ('Samsung', 'Galaxy S9+', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/81VnTSgQgQL._AC_SL1500_.jpg', 230, 30),
 ('Samsung', 'Note 9', 'Blue', 'https://images-na.ssl-images-amazon.com/images/I/51yoJBR-ACL._AC_.jpg', 240, 30),
 ('Samsung', 'Galaxy S10', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/61hClZa1clL._AC_SX679_.jpg', 250, 30),
-('Samsung', 'Galaxy S10+', 'Black', 'https://membershipwireless.com/media/catalog/product/s/a/samsung_galaxy_s10__black_lockup_rgb.png?width=700&height=700&canvas=700:700&quality=80&bg-color=255,255,255&fit=bounds', 260, 30)
+('Samsung', 'Galaxy S10+', 'Blue', 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6331/6331932_bd.jpg', 260, 30)
