@@ -145,11 +145,11 @@ class About extends Component {
         </div>
 
             <p> My name is Ammon Murray. I have been fixing phones for over 2 years.</p>
-                <p>I have fixed over thousands of phones. I am very careful with all devices because I understand the contents are very important.</p> 
+                <p>I have fixed over thousands of phones. I am very careful with all devices because I understand the content inside the phone are very important to you.</p> 
             <footer>
             <p>If you ever need any help with any devices contact me at:</p>
-            <p>Email at: ammonmurray1@gmail.com</p>
-            <p>Text at: (480)-489-7931</p>
+            <p>Email: ammonmurray1@gmail.com</p>
+            <p>Text: (480)-489-7931</p>
             </footer>
            
 

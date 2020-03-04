@@ -1,5 +1,5 @@
 .phoneImage {
-  height: 450px;
+  height: 400px;
 }
 
 body {
@@ -61,9 +61,10 @@ body::-webkit-scrollbar-thumb {
   transform-origin: right top;
   scrollbar-width: auto;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-  /* padding-right: 500px; */
-  /* margin-right: 500px; */
-  /* margin-bottom: 600px; */
+  padding-right: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+  padding-top: 600px;
   /* border: 2px solid black; */
 }
 
@@ -78,13 +79,14 @@ body::-webkit-scrollbar-thumb {
 
 .outerContainer {
   height: 500px;
-  /* width: 500px; */
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background-color: white;
-  margin-left: 420px;
+  margin-left: 400px;
+  margin-top: 20px;
   /* border: 2px solid black; */
 }
 
@@ -195,7 +197,7 @@ body::-webkit-scrollbar-thumb {
 .toggle-Samsung-show {
   text-decoration: none;
   display: inline-block;
-  height: 500px;
+  height: 250px;
   /* width: 200px; */
   justify-content: flex-end;
   align-self: baseline;

@@ -1,8 +1,8 @@
--- INSERT INTO phones (manufacturer, model, color, image, screen_price, battery_price)
--- VALUES
--- ('Google', 'Pixel 2', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/61v0enHOXpL._AC_SL1500_.jpg', 115, 30),
--- ('Google', 'Pixel 2 XL', 'Black', 'https://ss7.vzw.com/is/image/VerizonWireless/GOOGLE_Taiman_Blk?$device-lg$&wid=256&hei=520', 115, 30),
--- ('Google', 'Pixel 3', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/61jEXWFEGOL._AC_SL1500_.jpg', 130, 30),
--- ('Google', 'Pixel 3 XL', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/41CU2Axt3fL._AC_.jpg', 130, 30),
--- ('Google', 'Pixel 3a', 'Black', 'https://static.bhphoto.com/images/images2500x2500/1557315329_1475547.jpg', 150, 30),
--- ('Google', 'Pixel 3a XL', 'Black', 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6347/6347790cv12d.jpg', 150, 30)
+INSERT INTO phones (manufacturer, model, color, image, screen_price, battery_price)
+VALUES
+('Google', 'Pixel 2', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/61v0enHOXpL._AC_SL1500_.jpg', 115, 30),
+('Google', 'Pixel 2 XL', 'Black', 'https://images-na.ssl-images-amazon.com/images/I/61v0enHOXpL._AC_SL1500_.jpg', 115, 30),
+('Google', 'Pixel 3', 'Black', 'https://www.visible.com/shop/assets/images/shop/Pixel3-NotPink-Front.png', 130, 30),
+('Google', 'Pixel 3 XL', 'Black', 'https://www.visible.com/shop/assets/images/shop/Pixel3-NotPink-Front.png', 130, 30),
+('Google', 'Pixel 3a', 'Black', 'https://www.visible.com/shop/assets/images/shop/Pixel3a-JustBlack-Front.png', 150, 30),
+('Google', 'Pixel 3a XL', 'Black', 'https://www.visible.com/shop/assets/images/shop/Pixel3a-JustBlack-Front.png', 150, 30)
