@@ -20,11 +20,12 @@ header {
 .title{
     display: flex;
     align-items: center;
-    justify-content: space-around;
     font-size: x-large;
     text-decoration: none;
     color: white;
-    width: 20vw;
+    width: 25vw;
+    /* height: 20px; */
+    /* background-color: lightgreen; */
     
 }
 .titleContainer {
@@ -34,8 +35,8 @@ header {
 }
 
 .menuButton{
-    height: 1px;
-    width: 1px;
+    width: 30px;
+    height: 30px;
     display: none;
     align-items: center;
     border: black;
@@ -44,11 +45,7 @@ header {
     filter: invert();
     
 }
-.hamburger {
-    width: 30px;
-    height: 30px;
-   
-}
+
 .username {
     display: flex;
     width: 20px;
@@ -112,7 +109,7 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
-    background-color: #0F1620;
+    background-color: #36454F;
     animation-name: drop;
     position: absolute;
     right: 0px;
@@ -159,13 +156,13 @@ nav {
  
     .title {
         display: flex;
-        font-size: 12px;
-        width: 25vw;
+        font-size: 16px;
+        width: 35vw;
     }
 
     .phoneImg{
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
     }
 
 

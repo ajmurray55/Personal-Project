@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Calendar from 'react-calendar'
 import "./Appointment.css"
+
+
 
 class Appointment extends Component {
     constructor(){
@@ -32,21 +33,12 @@ class Appointment extends Component {
     render() {
     return(
         <div>
-            <div className="calendar">
-            <Calendar
-                onChange={this.onChange}
-                value={this.state.date}
-                />
             
-            <form className="time" onSubmit={this.submit}>
-                
-               <label for="appt">Select a day:<input type="date" id="appt" name="appt" value={this.state.inputDate} onChange={this.handleChange}/></label> 
-                
-                
-                <label for="appt">Select a time:<input type="time" id="appt" name="appt"/></label>
-                <input type="submit" value="Submit"/>
-            </form>
-            </div>
+           
+            
+        
+            <iframe title='appointment_form' src="https://services.cognitoforms.com/f/bCHPQnDbSkCl5AXJv6bWMQ?id=1" frameborder="0" scrolling="yes" seamless="seamless" height="574" width="100%"></iframe>
+            <script src="https://services.cognitoforms.com/scripts/embed.js"></script>
         </div>
      );
     }
