@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 import "./Cart.css";
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Link} from 'react-router-dom'
 
 toast.configure();
 
@@ -12,72 +14,139 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: []
+      cart: [],
+      cartTotal: 0
     };
   }
 
+    notify = () => {
+      toast("Payment Successful!")
 
+      toast.success("Success Notification !", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+    
   componentDidMount() {
-    this.setState({
-      cart: this.props.cart
-    });
-    console.log("state cart", this.state.cart);
+    this.getCart(this.props.user.user_id);
+    
   }
 
- 
- handleToken = async (token) => {
-    // console.log('token, addresses',{token, addresses})
-
-  const res = await axios.post('/api/checkout', {
-      token
+    
+  getCart = (user_id) => {
+    axios.get(`/api/cart/${user_id}`)
+    .then( res => {
+      console.log("data", res.data)
+      this.setState({
+        cart: res.data
+      })
     })
-    const { status } = res.data
-    if (status === 'success') {
-        toast('Success! Check email for details', 
-        { type: 'success' })
-    } else {
-      toast('Something went wrong',
-      { type: 'error' })
+      axios.get(`/api/cart_total/${user_id}`)
+      .then( res => {
+        console.log('res', res)
+        this.setState({
+          cartTotal: res.data[0].sum
+        })
+      })
+  }
+  
+  remove_cart = async cart_id => {
+    console.log('hope to remove', cart_id)
+    const body = {
+      user_id: this.state.cart[0].user_id
     }
+    const res = await axios.put(`/api/cart/${cart_id}`, body);
+    console.log('RES', res)
+    this.setState({
+      cart: res.data
+    })
+  }
+ 
+ handleToken = async () => {
+  console.log('cart', this.state.cart)
+  const id = this.state.cart[0].user_id
+  const res = await axios.delete(`/api/all_cart/${id}`);
+      this.setState({
+        cart: res.data,
+        cartTotal: 0
+      })
+      // this.getCart()
+      this.props.history.push("/cart");
   }
 
   render() {
-    return (
-      <div className="mainDiv">
-        <div>
-          <h1>{this.state.cart.manufacturer}</h1>
-          <h3>{this.state.cart.model}</h3>
-          <img className="phoneImage" src={this.state.cart.image} />
-          <div>
-            {this.state.cart.screen ? (
-              <div>
-                Screen Price: 
-                ${this.state.cart.screen_price}
-              </div>
-            ) : null}
+    console.log('under render cart', this.state.cartTotal)
+    const cartList = this.state.cart.map(cart => {
+      return(
+        
+        <div className="container">
+          <img className="phone_Image" alt ="phone_image" src ={cart.image} onClick = {() => this.getCart(cart.user_id)}></img>
+          
+          <div className="about_phone">
+            <ul className="model" onClick = {() => this.getCart(cart.phone_id)}>{cart.model}</ul>
 
-            {this.state.cart.battery ? (
-              <div>
-                Battery Price: 
-                ${this.state.cart.battery_price}
-              </div>
-            ) : null}
+            {
+              cart.screen
+              ?
+              <ul onClick = {() => this.getCart(cart.phone_id)}>Screen Price: <div>${cart.screen_price}</div></ul>
+              :
+              null
+            }
 
-            <h1 className="totalCost">Total Cost</h1>
-            {this.state.cart.total}
+            {
+              cart.battery
+              ?
+              <ul onClick = {() => this.getCart(cart.phone_id)}>Battery Price: <div>${cart.battery_price}</div></ul>
+              :
+              null
+            }
+            
+            <ul onClick = {() => this.getCart(cart.phone_id)}>Total: ${cart.total}</ul>
           </div>
-        </div>
+          
 
-        <StripeCheckout 
-        className="stripeButton"
-        stripeKey="pk_test_6LFbBm3UlXhuZoZQnc2mS6kH004CXob4ik"
-        token={this.handleToken}
-        billingAddress
-        shippingAddress
-        total={this.state.cart.total}
-        name={this.state.cart.manufacturer, this.state.cart.model}
+          <div className="stripeButton">
+           <button className="delete" onClick={() => this.remove_cart(cart.cart_id)}>Delete Phone</button>
+        
+        
+        </div>
+            
+          
+        </div>
+      )
+    })
+    // const {cartTotal} = this.state
+    const grandTotal = this.state.cartTotal
+    return (
+
+      <div className="outerDiv">
+
+        
+        <div className="payment">
+
+          <div className="cart_total">Cart Total: ${this.state.cartTotal}</div>
+          <StripeCheckout 
+          className="stripe_Button"
+          stripeKey="pk_test_6LFbBm3UlXhuZoZQnc2mS6kH004CXob4ik"
+          token={this.handleToken}
+          billingAddress
+          shippingAddress
+          name='give me money'
+          amount= {this.state.cartTotal * 100}
+          onClick={this.handleToken}
         />
-      </div>
+        <ToastContainer/>
+        <Link to="/appointments">
+        <button className="appointmentsButton">Make an appointment</button>
+        </Link>
+        
+        </div>
+        {cartList}
+
+         
+
+        </div>
+       
     );
   }
 }

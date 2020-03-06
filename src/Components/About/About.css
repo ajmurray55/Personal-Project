@@ -8,6 +8,24 @@
     align-items: center;
     justify-content: space-evenly;
     border-bottom: solid black 2px;
+    background-color: white;
+
+}
+
+footer{
+    height: 20vh; 
+    width: 100vw;
+    background-color: #36454F;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    /* margin-top: 300px; */
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    position: absolute;
+    bottom: 0;
 }
 
 .Video {
@@ -19,20 +37,25 @@
     width: 50vw; */
     z-index: 1;
     margin-top: 20vh;
+
 }
 
 .Link {
-    /* height: 30vw; */
-    /* width: 33.3vw; */
-    /* background-color: grey; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin: 30px; */
+    background-color: white;
+    border: none;
+    font-size: large;
+    font-family: 'Krona One';
+
 }
 .Link:hover {
-    color: lightseagreen;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
 }
 
 .Video-show {
@@ -40,6 +63,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 530px;
+    margin-top: 100px;
 }
 
 .Video-hide {

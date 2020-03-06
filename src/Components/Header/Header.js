@@ -49,7 +49,7 @@ class Header extends React.Component {
           </Link>
           {/* <div className="titleContainer"> */}
           <h1 className="title" to="/">
-            Phone Fixing
+           AZ Smart Repair
           </h1>
           <nav className="navigation">
             <Link className="navTitles" to="/about">

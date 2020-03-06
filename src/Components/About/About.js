@@ -16,30 +16,6 @@ class About extends Component {
     };
   }
 
-//   toggleGalaxyVideo = () => {
-//     this.setState({
-//       toggleGalaxyVideo: !this.state.toggleGalaxyVideo,
-//       toggleGoogleVideo: false,
-//       toggleIphoneVideo: false
-//     });
-//   };
-//   toggleIphoneVideo = () => {
-//     this.setState({
-//       toggleIphoneVideo: !this.state.toggleIphoneVideo,
-//       toggleGoogleVideo: false,
-//       toggleGalaxyVideo: false
-//     });
-//   };
-//   toggleGoogleVideo = () => {
-//     this.setState({
-//       toggleGoogleVideo: !this.state.toggleGoogleVideo,
-//       toggleIphoneVideo: false,
-//       toggleGalaxyVideo: false
-//     });
-//   };
-
-
-
   toggle = phone => {
     let url;
     let status = true;
@@ -74,22 +50,10 @@ class About extends Component {
     });
   };
   render() {
-      console.log('look', this.state.currentURL)
-    // const mappdedIphoneVideo = this.state.Iphone.map(Iphone => {
-    //     return(
-    //         <iframe
-    //     className="Video-show"
-    //     width="560"
-    //     height="315"
-    //     src="https://www.youtube.com/embed/hRUlD9PsWso"
-    //     frameborder="0"
-    //     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-    //     allowfullscreen></iframe>
-    //     )
-    // })
+  
     return (
         
-      <div>
+      <div className="outerDiv">
         <div className="videoList">
           <p className="Link"  onClick={() => this.toggle('iphone')}>
             Iphone Screen Replacement
@@ -135,7 +99,7 @@ class About extends Component {
             <iframe
               className="Video-show"
               width="600"
-              height="330"
+              height="350"
               src={this.state.currentURL}
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -144,10 +108,10 @@ class About extends Component {
           ) : null}
         </div>
 
-            <p> My name is Ammon Murray. I have been fixing phones for over 2 years.</p>
-                <p>I have fixed over thousands of phones. I am very careful with all devices because I understand the content inside the phone are very important to you.</p> 
             <footer>
-            <p>If you ever need any help with any devices contact me at:</p>
+            <p> My name is Ammon Murray. I have been fixing phones for over 2 years.</p>
+            <p>I have fixed over thousands of phones. I am very careful with all devices because I understand the content inside the phone are very important to you.</p> 
+            <p>If you ever need any help with any mobile devices contact me at,</p>
             <p>Email: ammonmurray1@gmail.com</p>
             <p>Text: (480)-489-7931</p>
             </footer>

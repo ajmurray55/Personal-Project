@@ -1,7 +1,7 @@
 header {
     width: 100vw;
     height: 10vh;
-    background-color: #0F1620;
+    background-color: #36454F;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -15,7 +15,7 @@ header {
     filter: invert()
 }
 .phoneImg:hover {
-    filter: invert(50%)
+    filter: invert(0%)
 }
 .title{
     display: flex;
@@ -57,21 +57,21 @@ header {
     justify-content: space-evenly;
     flex-direction: column;
     /* border:; */
-    margin: 0 20px;
+    margin: 0 25px;
 }
 .logOut {
-    /* width: 100px; */
+    width: 100px;
     /* margin-right: 80px; */
-    background-color: #0F1620;
+    background-color: #36454F;
     color: white;
     border: #0F1620;
     font-family: 'Krona One';
-    padding-right:20px ;
+    margin-right:25px ;
     font-size: 15px;
 }
 
 .logOut:hover {
-    color: grey;
+    color: black;
 }
 
 .welcome {
@@ -102,7 +102,7 @@ nav {
     text-decoration: none;
 }
 .navTitles:hover {
-    color: darkgrey
+    color: black
 }
 
 .mobile-menu-show{

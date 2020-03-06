@@ -1,22 +1,107 @@
-.phoneImage {
-    height: 500px;
+
+.outerDiv {
+  /* background: url('../../background.jpg') no-repeat center center fixed; */
+  height: 100vh;
+  width: 100vw;
+  /* background-color: fuchsia; */
 }
 
-.totalCost {
-display: flex;
-flex-direction: column;
+
+.payment{
+  /* height: 70px; */
+  /* width: 100vw; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  /* margin-left: 600px; */
+  /* color: white; */
+  background-color: white;
+  padding-top: 20px;  
 }
 
-.mainDiv {
-    height: 700px;
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: solid black 2px;
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-left: 500px;
+.cart_total {
+  display: flex;
+  /* height: 70px;
+  /* width: 100vw; */ 
+  align-content: center;
+  justify-content: center;
+  /* padding-top: 10px; */
+  /* background-color: white; */
+  text-decoration: underline;
+
+}
+.container {
+  /* height: 50vh; */
+  /* width: 30vw; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* flex-direction: column; */
+  align-items: center;
+  align-content: space-evenly;
+  border: solid black 3px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: white;
+}
+
+.phone_Image {
+  height: 300px;
+  margin: 10px;
+
+}
+
+.about_phone {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.model {
+  text-decoration: underline;
+}
+
+.stripeButton {
+  width: 125px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  /* margin: 20px; */
+  flex-direction: column
+}
+.stripe_Button {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* margin-left: 400px; */
+}
+.delete {
+  width: 120px;
+  height: 30px;
+  background-color: #b10305;
+  color: white;
+  font-weight: 800;
+  border: solid #b10305;
+  border-radius: 3px;
+}
+.delete:hover{
+  color: black;
+}
+.appointmentsButton {
+  width: 120px;
+  color: white;
+  font-weight: 800;
+  background-color: green;
+  border: green;
+  border-radius: 3px;
+}
+
+.appointmentsButton:hover{
+  color: black;
 }
 

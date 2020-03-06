@@ -18,9 +18,7 @@ class Login extends Component {
     };
   }
 
-  // componentDidMount(){
-  //   console.log('login mounted')
-  // }
+ 
 
   changeHandler = e => {
     this.setState({

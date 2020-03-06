@@ -2,6 +2,10 @@
   height: 400px;
 }
 
+.phoneImage:hover {
+  cursor: pointer;
+}
+
 body {
   background-color: white;
   font-family: "Krona One";
@@ -90,6 +94,27 @@ body::-webkit-scrollbar-thumb {
   /* border: 2px solid black; */
 }
 
+.messageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cartMessage {
+  color: green;
+  -webkit-animation: fadeinout 2s linear forwards;
+  animation: fadeinout 2s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 .manufactButtons {
   display: flex;
   height: 15vh;
@@ -145,11 +170,18 @@ body::-webkit-scrollbar-thumb {
   width: 30px;
   height: 30px;
 }
+.productBox:hover {
+  cursor: pointer;
+}
 .totalCost {
   font-size: 25px;
   font-weight: 800;
   margin-top: 20px;
   text-decoration: underline;
+}
+
+button:hover{
+  cursor: pointer;
 }
 .myPhone {
   text-decoration: black underline overline;
@@ -180,6 +212,7 @@ body::-webkit-scrollbar-thumb {
 .toggle-Apple-show::-webkit-scrollbar {
   width: 11px;
 }
+
 
 .toggle-Apple-show::-webkit-scrollbar-track {
   background: var(--scrollbarBG);
@@ -280,6 +313,7 @@ body::-webkit-scrollbar-thumb {
 }
 .PhoneLogo:hover {
   padding-top: 10px;
+  cursor: pointer;
 }
 
 .seperatePhone {
@@ -293,6 +327,7 @@ body::-webkit-scrollbar-thumb {
 }
 .seperatePhone:hover {
   color: blue;
+  cursor: pointer;
 }
 
 .addToCart {

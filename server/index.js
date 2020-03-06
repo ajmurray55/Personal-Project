@@ -11,7 +11,7 @@ const uuid = require("uuid/v4");
 
 const {login, register, logout, userSession} = require('./Controller/authCtrl')
 const {getAllPhones, getOnePhone} = require('./Controller/phoneCtrl')
-const {addToCart} = require('./Controller/cartCtrl')
+const {addToCart, remove, getAllCart, getTotal, getCartTotal, deleteAllCart} = require('./Controller/cartCtrl')
 
 
 app.use(express.json());
@@ -39,9 +39,13 @@ app.get('/auth/logout', logout)
 app.get("/api/all_phones", getAllPhones)
 app.get("/api/phone/:id", getOnePhone)
 // cartCtrl ENDPOINTS
+app.get("/api/cart/:user_id", getAllCart)
+app.get("/api/cart_total/:id", getCartTotal)
+app.put("/api/total/:id", getTotal)
 app.post("/api/cart/:id", addToCart)
 app.put("/api/edit_cart")
-app.delete("api/product")
+app.put("/api/cart/:cart_id", remove)
+app.delete("/api/all_cart/:user_id", deleteAllCart)
 app.post("/api/cart/checkout", async (req, res) => {
     let error;
     let status;
