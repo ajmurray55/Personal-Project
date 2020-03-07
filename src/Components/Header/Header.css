@@ -120,6 +120,12 @@ nav {
     display: none;
 }
 
+.enitrePage{
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+}
+
 @keyframes drop {
     0% {
         height: 0;
@@ -155,9 +161,8 @@ nav {
     }
  
     .title {
-        display: flex;
-        font-size: 16px;
-        width: 35vw;
+        font-size: 15px;
+        width: 40vw;
     }
 
     .phoneImg{

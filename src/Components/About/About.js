@@ -53,7 +53,7 @@ class About extends Component {
   
     return (
         
-      <div className="outerDiv">
+      <div>
         <div className="videoList">
           <p className="Link"  onClick={() => this.toggle('iphone')}>
             Iphone Screen Replacement

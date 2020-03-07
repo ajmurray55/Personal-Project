@@ -118,9 +118,10 @@ body::-webkit-scrollbar-thumb {
 .manufactButtons {
   display: flex;
   height: 15vh;
+  width: 100vw;
   justify-content: space-around;
   align-items: center;
-  /* background-color: cadetblue; */
+  
 }
 .chosenPhone {
   display: flex;
@@ -134,17 +135,21 @@ body::-webkit-scrollbar-thumb {
   margin-left: 10px;
   border: 3px solid black;
 }
-.dahParent {
+ .dahParent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
-}
+ } 
 
 .fix {
   display: flex;
+  height: 65vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 .screenOrBattery {
   height: 600px;
@@ -174,9 +179,10 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 .totalCost {
+  
   font-size: 25px;
   font-weight: 800;
-  margin-top: 20px;
+  /* margin-top: 80px; */
   text-decoration: underline;
 }
 
@@ -187,20 +193,31 @@ button:hover{
   text-decoration: black underline overline;
   font-size: larger;
 }
+.S_B_Container{
+  width: 400px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: forestgreen; */
+}
+
+.totalButton{
+  display: flex;
+  height: 30px;
+  margin-top: 50px;
+}
 
 .toggle-Apple-show {
   text-decoration: none;
   display: inline-block;
   height: 255px;
-  /* width: 200px; */
   justify-content: flex-end;
   align-self: baseline;
   right: 0px;
   background-color: white;
   animation-name: drop;
-  /* position: fixed; */
-  /* animation-duration: .5s; */
-  /* z-index: 0; */
+
   overflow: auto;
   border: black;
   scrollbar-width: auto;
@@ -305,11 +322,9 @@ button:hover{
 
 .PhoneLogo {
   height: 100px;
-  margin: 200px;
   display: flex;
   justify-content: space-around;
-  /* background-color: cadetblue; */
-  /* border: 100px cadetblue; */
+  
 }
 .PhoneLogo:hover {
   padding-top: 10px;
@@ -357,6 +372,7 @@ button:hover{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-top: 50px;
 }
 .money {
   padding-top: 20px;
@@ -383,54 +399,131 @@ button:hover{
 }
 
 @media screen and (max-width: 700px) {
-  .dahParent {
-    width: 100vw;
-  }
-  .phoneImage {
-    height: 275px;
-  }
   .PhoneLogo {
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
-  .PhoneLogo:hover {
-    height: 50px;
+  .manufactButtons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    margin-left: 400px;
+  }
+  .dahParent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 0;
+  }
+  .message-show{
+    width: 100vw;
+    margin-left: 400px;
+  }
+  .toggle-Apple-show {
+    width: 200px;
+    height: 150px;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+  .toggle-Samsung-show {
+    width: 200px;
+    height: 150px;
+    z-index: 1;
+    margin-bottom: 20px;
+
+  }
+  .toggle-Google-show {
+    width: 200px;
+    height: 150px;
+    z-index: 1;
+    margin-bottom: 20px;
+
+  }
+  .phoneImage{
+    height: 300px;
   }
   .sideScroll {
-    width: 450px;
-    height: 100vh;
+    height: 500px;
+    width: 820px;
+    transform: none;
+    /* margin-right: 500px; */
+    position: relative;
+    left: 0;
+    top: 0;
+    padding-right:0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-top: 0;
+    
+
+
   }
   .sideScroll > div {
-    margin-right: -150px;
-    margin-bottom: -300px;
+    transform: none;
+    margin-bottom: -100px;
+    margin-top: -50px;
+    padding-right: 80px;
   }
-  .manufactButtons {
-    width: 700px;
+
+  .fix{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 400px;
+  }
+  .chosenPhone{
+    height: 400px;
+    width: 300px;
+    margin-top: 250px;
+  }
+  .screenOrBattery{
+    height: 400px;
+    width: 300px;
+    margin-right: 200px;
+    font-size: 11px;
+  }
+  .productBox{
+    height: 20px;
+    width: 20px;
+  }
+  .products{
+    height: 100px;
+  }
+  .S_B_Container{
+    width: 250px;
+    height: 200px;
+    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
-  .toggle-Phone-show {
-    text-decoration: none;
-    display: inline-block;
-    height: 15px;
-    width: 200px;
-    animation-name: drop;
-    position: absolute;
-    animation-duration: 0.5s;
-    z-index: 1;
-    overflow: scroll;
-    background-color: lightblue;
-    border-radius: 5px;
-    border-top: 20px darkblue;
-  }
-  .seperatePhone {
-    font-size: 10px;
-    border: 5px blue;
-    /* background-color: red; */
-  }
-  .outerContainer {
+  .bottomButtons{
     display: flex;
-    height: 100vh;
-    background-color: red;
+    width: 250px;
+    height: 20px;
+    
+    margin-top: 90px;
+  }
+  .nextButton{
+    height: 20px;
+    width: 20px;
+  }
+  .addToCart{
+    height: 30px;
+    width: 30px;
+  }
+
+  .totalCost{
+    font-size: 15px;
+  }
+  .totalButton {
+    margin-bottom: 50px;
+    height: 25px;
+  }
+  .total{
+    height: 300px;
   }
 }

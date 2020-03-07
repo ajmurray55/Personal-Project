@@ -131,13 +131,13 @@ class Cart extends Component {
           token={this.handleToken}
           billingAddress
           shippingAddress
-          name='give me money'
+          name='AZ Smart Repair'
           amount= {this.state.cartTotal * 100}
           onClick={this.handleToken}
         />
         <ToastContainer/>
         <Link to="/appointments">
-        <button className="appointmentsButton">Make an appointment</button>
+        <button className="appointmentsButton">Book Appointment</button>
         </Link>
         
         </div>

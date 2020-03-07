@@ -288,17 +288,12 @@ class Store extends React.Component {
               src={GoogleLogo}
               onClick={this.toggleGoogle}/>
 
-            
-
             </div>
             <h1 className={
               this.state.toggleApple || this.state.toggleSamsung || this.state.toggleGoogle || this.state.selectedPhone ? "message-hide" : "message-show"
             }
-            >Select a Phone that you need Fixing!</h1>
-           
+            >Select a Phone that you need Fixing!</h1>           
              
-        
-
         <nav
           className={
             this.state.toggleApple ? "toggle-Apple-show" : "toggle-Apple-hide"
@@ -322,7 +317,7 @@ class Store extends React.Component {
         >
           {googleMenu}
         </nav>
-        
+       
             {
             this.state.toggleApple
           ? 
@@ -342,23 +337,26 @@ class Store extends React.Component {
           <div>{mappedMyPhone} </div>
           <h1 className="screenOrBattery"> What will you like done on your phone?
           
+            <div className="S_B_Container">
             <label className="products">Screen<input className="productBox" type="checkbox" value= "screen" onClick={this.screen}/></label>
             <label className="products">Battery<input className="productBox" type="checkbox" value= "battery" onClick={this.battery}/></label>
-            <button onClick={() => this.getTotal(this.state.foundPhone.phone_id)}>Total</button>
+            <button className="totalButton" onClick={() => this.getTotal(this.state.foundPhone.phone_id)}>Total</button>
+
+            </div>
+            
           
               <section className="total">
             <label className="totalCost">Total Cost</label>
               {
-              !this.state.total
+                !this.state.total
               ?
               null
               :
-              <p className='money'>{this.state.total}</p>
+              <p className='money'>${this.state.total}</p>
               
               }
               <div className="bottomButtons">
              
-
              {
                this.state.cartMessage
                 ?
@@ -378,18 +376,15 @@ class Store extends React.Component {
                 alt="cart Logo"
                 onClick={() => this.cartMessage(phone_id)}
                 />
-                
-
 
              }
                
-
-
               <Link to="/cart">
+                
                 <img 
                 className="nextButton" 
                 src="data:image/png;base64,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"
-                
+                name='cart'
                 />
               </Link>
               </div>

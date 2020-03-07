@@ -9,10 +9,10 @@
 
 .payment{
   /* height: 70px; */
-  /* width: 100vw; */
+  width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
   /* margin-left: 600px; */
   /* color: white; */
@@ -21,15 +21,7 @@
 }
 
 .cart_total {
-  display: flex;
-  /* height: 70px;
-  /* width: 100vw; */ 
-  align-content: center;
-  justify-content: center;
-  /* padding-top: 10px; */
-  /* background-color: white; */
   text-decoration: underline;
-
 }
 .container {
   /* height: 50vh; */
@@ -105,3 +97,21 @@
   color: black;
 }
 
+
+@media screen and (max-width: 700px){
+  .cart_total{
+    padding-left: 20px;
+  }
+  .container{
+    padding: 10px;
+  }
+  .stripe_Button{
+    padding-right: 200px;
+  }
+  .appointmentsButton{
+    margin: 20px;
+  }
+  .delete{
+    margin-top: 50px;
+  }
+}

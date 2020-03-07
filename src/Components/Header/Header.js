@@ -39,6 +39,7 @@ class Header extends React.Component {
   
     return (
       <div className="headDiv">
+
         <header>
           <Link to="/">
             <img
@@ -95,11 +96,31 @@ class Header extends React.Component {
           
           </div>
         </header>
+        <div className="">
         <nav
           className={
             this.state.toggleMenu ? "mobile-menu-show" : "mobile-menu-hide"
           }
         >
+          {this.props.loading ? (
+              <h1>waiting...</h1>
+            ) : this.props.loggedIn ? (
+              <h1 className="welcome">
+                {" "}
+                Welcome {this.props.user.username}{" "}
+                
+                  <button
+                    className="logOut"
+                    type="submit"
+                    onClick={() => this.logout()}
+                  >
+                    Log Out
+                  </button>
+               
+              </h1>
+            ) : null}
+
+          
           <Link className="navTitles" to="/">
             Home
           </Link>
@@ -115,7 +136,9 @@ class Header extends React.Component {
           <Link className="navTitles" to="/appointments">
             Appointments
           </Link>
+          
         </nav>
+        </div>
       </div>
     );
   }

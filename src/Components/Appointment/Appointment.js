@@ -5,6 +5,7 @@ import "./Appointment.css";
     return (
       <div>
         <iframe
+          className="appt"
           title="appointment_form"
           src="https://services.cognitoforms.com/f/bCHPQnDbSkCl5AXJv6bWMQ?id=1"
           frameborder="0"
