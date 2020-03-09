@@ -92,7 +92,7 @@ class About extends Component {
           </nav>
         </div>
 
-        <div>
+        <div className="youtubeContainer">
           {" "}
           {this.state.videoStatus ? (
             // eslint-disable-next-line jsx-a11y/iframe-has-title
