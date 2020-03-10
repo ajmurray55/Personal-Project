@@ -205,7 +205,7 @@ class Store extends React.Component {
         <div className="outerContainer">
           <div onClick={() => this.myPhone(phone.phone_id)}>{phone.manufacturer}</div>
           <div onClick={() => this.myPhone(phone.phone_id)}>{phone.model}</div>
-          <div onClick={() => this.myPhone(phone.phone_id)}>{phone.color}</div>
+          {/* <div onClick={() => this.myPhone(phone.phone_id)}>{phone.color}</div> */}
           <img onClick={() => this.myPhone(phone.phone_id)} className="phoneImage" src={phone.image} alt="phone" />
         </div>
       );

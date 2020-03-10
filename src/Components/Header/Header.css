@@ -147,7 +147,7 @@ nav {
     .navigation{
         display: none;
     }
-    .parent_welcome{
+    /* .parent_welcome{
         width: 200px;
        display: flex;
        color: red;
@@ -156,7 +156,7 @@ nav {
     .welcome_username{
         color: chartreuse;
         background-color: red;
-    }
+    } */
     .welcome {
         font-size: 12px;
         width: 11px;

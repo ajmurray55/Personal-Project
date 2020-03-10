@@ -421,20 +421,20 @@ button:hover{
     margin-left: 400px;
   }
   .toggle-Apple-show {
-    width: 200px;
+    width: 380px;
     height: 150px;
     z-index: 1;
     margin-bottom: 20px;
   }
   .toggle-Samsung-show {
-    width: 200px;
+    width: 380px;
     height: 150px;
     z-index: 1;
     margin-bottom: 20px;
 
   }
   .toggle-Google-show {
-    width: 200px;
+    width: 380px;
     height: 150px;
     z-index: 1;
     margin-bottom: 20px;
