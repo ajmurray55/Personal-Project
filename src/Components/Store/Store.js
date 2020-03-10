@@ -53,11 +53,17 @@ class Store extends React.Component {
   addToCart  = async (phone_id) => {
     const {screen, battery} = this.state
     console.log('screen and battery', screen, battery)
-    const res = await axios.post(`/api/cart/${phone_id}`, {screen, battery})
-    this.setState({
-      total: res.data.total
-    });
-    const cart = {
+   axios.post(`/api/cart/${phone_id}`, {screen, battery})
+    .then(res => {
+      this.setState({
+        total: res.data.total
+      })
+    })
+    // .catch(alert('Please Log In to place something into the cart.'))
+    // this.setState({
+    //   cartMessage: false
+    // })
+       const cart = {
       manufacturer: this.state.foundPhone.manufacturer,
       model: this.state.foundPhone.model,
       color: this.state.foundPhone.color,
@@ -70,9 +76,7 @@ class Store extends React.Component {
     }
     console.log('cart function', cart)
     this.props.myCart(cart)
-    
-    // console.log("this is RES", res)
-   
+       
   }
 
   screen() {
@@ -352,7 +356,7 @@ class Store extends React.Component {
               ?
               null
               :
-              <p className='money'>${this.state.total}</p>
+              <p className='money'>{this.state.total}</p>
               
               }
               <div className="bottomButtons">

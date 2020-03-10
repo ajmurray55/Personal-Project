@@ -19,7 +19,7 @@ module.exports = {
     console.log("total", price, total);
     const addCart = await db.add_To_Cart([user_id, id, screen, battery, total]);
     console.log("addCArt", addCart[0]);
-    res.status(200).send(addCart[0]);
+    res.status(200).send(addCart[0])
   },
 
   getTotal: async (req, res, next) => {

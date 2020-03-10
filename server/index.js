@@ -16,6 +16,7 @@ const {addToCart, remove, getAllCart, getTotal, getCartTotal, deleteAllCart} = r
 
 app.use(express.json());
 
+
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log('Connected to your DB')
@@ -43,50 +44,14 @@ app.get("/api/cart/:user_id", getAllCart)
 app.get("/api/cart_total/:id", getCartTotal)
 app.put("/api/total/:id", getTotal)
 app.post("/api/cart/:id", addToCart)
-app.put("/api/edit_cart")
 app.put("/api/cart/:cart_id", remove)
 app.delete("/api/all_cart/:user_id", deleteAllCart)
-app.post("/api/cart/checkout", async (req, res) => {
-    let error;
-    let status;
-    try {
-      const {phone, token, cart} = req.body;
-      const customer = await
-      stripe.customers.create({
-        email: token.email,
-        source: token.id
-      });
-      const idempotency_key = uuid();
-      const charge = await stripe.charges.create(
-        {
-          amount: cart.total,
-          currency: "usd",
-          customer: customer.id,
-          receipt_email: token.email,
-          description: `Purchased the ${phone}`,
-          shipping: {
-            name: token.card.name,
-            address: {
-              line1: token.card.address_line1,
-              line2: token.card.address_line2,
-              city: token.card.address_city,
-              country: token.card.address_country,
-              postal_code: token.card.address_zip
-            }
-          }
-        },
-        {idempotency_key}
-      );
-      console.log("Charge:", {charge});
-      status = "success";
-    } catch (error) {
-      console.error("Error:", error);
-      status = "failure";
-    }
-    res.json({ error, status });
-  })
 
 
+const path = require('path'); 
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(SERVER_PORT, () => console.log(`Running on Server Port ${SERVER_PORT}`));
