@@ -69,12 +69,12 @@ class Header extends React.Component {
             {this.props.loading ? (
               <h1>waiting...</h1>
             ) : this.props.loggedIn ? (
-              <div>
+              <div className="parent_welcome">
               <h1 className="welcome">
                 {" "}
                 Welcome 
                 </h1>
-                <h1>{this.props.user.username}{" "}</h1>
+                <h1 className="welcome_username">{this.props.user.username}{" "}</h1>
                 
                   <button
                     className="logOut"
