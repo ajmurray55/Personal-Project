@@ -16,7 +16,7 @@ const {addToCart, remove, getAllCart, getTotal, getCartTotal, deleteAllCart} = r
 
 app.use(express.json());
 
-
+app.use( express.static( `${__dirname}/../build` ) );
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
     console.log('Connected to your DB')
@@ -48,10 +48,10 @@ app.put("/api/cart/:cart_id", remove)
 app.delete("/api/all_cart/:user_id", deleteAllCart)
 
 
-const path = require('path'); 
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+
+
+
+
 
 app.listen(SERVER_PORT, () => console.log(`Running on Server Port ${SERVER_PORT}`));
