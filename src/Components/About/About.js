@@ -41,7 +41,7 @@ class About extends Component {
       default:
         url = "";
     }
-    console.log('url', url)
+    // console.log('url', url)
     this.setState({
       videoStatus: status,
       currentURL: url,

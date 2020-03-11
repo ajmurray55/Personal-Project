@@ -38,7 +38,7 @@ export function logout(){
 }
 
 export function myCart(cart){
-    console.log('reducer cart', cart)
+    // console.log('reducer cart', cart)
     return {
         type: CART,
         payload: cart

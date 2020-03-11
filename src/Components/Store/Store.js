@@ -52,7 +52,7 @@ class Store extends React.Component {
 
   addToCart  = async (phone_id) => {
     const {screen, battery} = this.state
-    console.log('screen and battery', screen, battery)
+    // console.log('screen and battery', screen, battery)
    axios.post(`/api/cart/${phone_id}`, {screen, battery})
     .then(res => {
       this.setState({
@@ -74,7 +74,7 @@ class Store extends React.Component {
       battery: this.state.battery,
       total: this.state.total
     }
-    console.log('cart function', cart)
+    // console.log('cart function', cart)
     this.props.myCart(cart)
        
   }
@@ -161,7 +161,7 @@ class Store extends React.Component {
   };
 
  getTotal = (id) => {
-   console.log('phone_id', id)
+  //  console.log('phone_id', id)
    const body = {
      screen: this.state.screen, 
      battery: this.state.battery

@@ -36,14 +36,14 @@ class Cart extends Component {
   getCart = (user_id) => {
     axios.get(`/api/cart/${user_id}`)
     .then( res => {
-      console.log("data", res.data)
+      // console.log("data", res.data)
       this.setState({
         cart: res.data
       })
     })
       axios.get(`/api/cart_total/${user_id}`)
       .then( res => {
-        console.log('res', res)
+        // console.log('res', res)
         this.setState({
           cartTotal: res.data[0].sum
         })
@@ -51,19 +51,19 @@ class Cart extends Component {
   }
   
   remove_cart = async cart_id => {
-    console.log('hope to remove', cart_id)
+    // console.log('hope to remove', cart_id)
     const body = {
       user_id: this.state.cart[0].user_id
     }
     const res = await axios.put(`/api/cart/${cart_id}`, body);
-    console.log('RES', res)
+    // console.log('RES', res)
     this.setState({
       cart: res.data
     })
   }
  
  handleToken = async () => {
-  console.log('cart', this.state.cart)
+  // console.log('cart', this.state.cart)
   const id = this.state.cart[0].user_id
   const res = await axios.delete(`/api/all_cart/${id}`);
       this.setState({
@@ -75,7 +75,7 @@ class Cart extends Component {
   }
 
   render() {
-    console.log('under render cart', this.state.cartTotal)
+    // console.log('under render cart', this.state.cartTotal)
     const cartList = this.state.cart.map(cart => {
       return(
         

@@ -35,7 +35,7 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
 
     return (
       <div className="headDiv">
@@ -99,7 +99,7 @@ class Header extends React.Component {
           }
           onClick={e => {
             if (e.target.className === "menu_background_show") {
-              console.log('classname', e.target.className)
+              // console.log('classname', e.target.className)
               this.setState({
                 toggleMenu: false
               });
