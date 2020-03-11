@@ -63,7 +63,7 @@ header {
     color: white;
     border: #0F1620;
     font-family: 'Krona One';
-    margin-right:25px ;
+    margin-left: 50px ;
     font-size: 15px;
 }
 
@@ -105,7 +105,7 @@ nav {
 .mobile-menu-show{
     text-decoration: none;
     display: flex;
-    height: 200px;
+    height: 250px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
@@ -115,6 +115,7 @@ nav {
     right: 0px;
     z-index: 1;
     border-radius: 2px;
+    animation-duration: .3s;
 }
 .mobile-menu-hide{
     display: none;
@@ -147,25 +148,34 @@ nav {
     .navigation{
         display: none;
     }
-    /* .parent_welcome{
-        width: 200px;
+    .welcome_parent{
+       height: 80px;
        display: flex;
-       color: red;
-       background-color: red;
+       flex-direction: column;
+       align-items: flex-start;
+       justify-content: space-evenly;
+       /* background-color: cadetblue; */
+       padding-left: 10px;
+       /* color: teal; */
     }
     .welcome_username{
-        color: chartreuse;
-        background-color: red;
-    } */
+        color: white;
+        display: flex;
+        padding-left: 10px;
+        text-decoration: white underline;
+
+        
+    }
     .welcome {
-        font-size: 12px;
-        width: 11px;
+        font-size: 13px;
+        height: auto;
         display: flex;
         align-items: center;
         flex-direction:column;
         justify-content: flex-end;
-        margin-left: 60px;
-        color: cadetblue;
+        color: white;
+        /* background-color: red; */
+
         
     }
     .menuButton{
@@ -176,11 +186,29 @@ nav {
         font-size: 15px;
         width: 40vw;
     }
+    .logOut{
+        /* width: 150px; */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 0;
+        padding-left: 10px;
+        color: white;
+    }
 
     .phoneImg{
         width: 50px;
         height: 50px;
     }
 
+    .menu_background_show{
+        width: 100vw;
+        height: 100vh;
+        background-color: transparent;
+        z-index: 2;
+        position: absolute;
+    }
+
+    
 
 }

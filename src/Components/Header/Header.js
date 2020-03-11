@@ -30,16 +30,15 @@ class Header extends React.Component {
     });
   };
   logout() {
-    this.props.logout()
-    this.props.history.push('/')
+    this.props.logout();
+    this.props.history.push("/");
   }
 
   render() {
     console.log(this.props);
-  
+
     return (
       <div className="headDiv">
-
         <header>
           <Link to="/">
             <img
@@ -50,7 +49,7 @@ class Header extends React.Component {
           </Link>
           {/* <div className="titleContainer"> */}
           <h1 className="title" to="/">
-           AZ Smart Repair
+            AZ Smart Repair
           </h1>
           <nav className="navigation">
             <Link className="navTitles" to="/about">
@@ -69,13 +68,10 @@ class Header extends React.Component {
             {this.props.loading ? (
               <h1>waiting...</h1>
             ) : this.props.loggedIn ? (
-              <div className="parent_welcome">
-              <h1 className="welcome">
-                {" "}
-                Welcome 
-                </h1>
-                <h1 className="welcome_username">{this.props.user.username}{" "}</h1>
-                
+              <div>
+                <h1 className="welcome">
+                  {" "}
+                  Welcome {this.props.user.username}{" "}
                   <button
                     className="logOut"
                     type="submit"
@@ -83,65 +79,70 @@ class Header extends React.Component {
                   >
                     Log Out
                   </button>
-               
-              
+                </h1>
               </div>
             ) : null}
           </nav>
 
           <div className="buttondiv">
-            
-              <img
-                className="menuButton"
-                alt="hamburger"
-                src="https://i.ya-webdesign.com/images/3-bar-menu-png-1.png"
-                onClick={() => this.toggleMenuFunc()}
-              />
-          
+            <img
+              className="menuButton"
+              alt="hamburger"
+              src="https://i.ya-webdesign.com/images/3-bar-menu-png-1.png"
+              onClick={() => this.toggleMenuFunc()}
+            />
           </div>
         </header>
-        <div className="">
-        <nav
+        <div
           className={
-            this.state.toggleMenu ? "mobile-menu-show" : "mobile-menu-hide"
+            this.state.toggleMenu ? "menu_background_show" : "mobile-menu-hide"
           }
+          onClick={e => {
+            if (e.target.className === "menu_background_show") {
+              console.log('classname', e.target.className)
+              this.setState({
+                toggleMenu: false
+              });
+            }
+          }}
         >
-          {this.props.loading ? (
+          <nav className="mobile-menu-show">
+            {this.props.loading ? (
               <h1>waiting...</h1>
             ) : this.props.loggedIn ? (
-              <h1 className="welcome">
-                {" "}
-                Welcome {this.props.user.username}{" "}
+              <div className="welcome_parent">
+                <h1 className="welcome"> Welcome,</h1>
+                <h1 className="welcome_username">
+                  {this.props.user.username}
+                </h1>
+                <h1
+                  className="logOut"
+                  type="submit"
+                  onClick={() => this.logout()}
+                >
+                  Log Out
+                </h1>
                 
-                  <button
-                    className="logOut"
-                    type="submit"
-                    onClick={() => this.logout()}
-                  >
-                    Log Out
-                  </button>
-               
-              </h1>
+              </div>
             ) : null}
 
-          
-          <Link className="navTitles" to="/">
-            Home
-          </Link>
-          <Link className="navTitles" to="/about">
-            About
-          </Link>
-          <Link className="navTitles" to="/store">
-            Store
-          </Link>
-          <Link className="navTitles" to="/cart">
-            Cart
-          </Link>
-          <Link className="navTitles" to="/appointments">
-            Appointments
-          </Link>
-          
-        </nav>
+            <Link className="navTitles" to="/">
+              Home
+            </Link>
+            <Link className="navTitles" to="/about">
+              About
+            </Link>
+            <Link className="navTitles" to="/store">
+              Store
+            </Link>
+            <Link className="navTitles" to="/cart">
+              Cart
+            </Link>
+            <Link className="navTitles" to="/appointments">
+              Appointments
+            </Link>
+           
+          </nav>
         </div>
       </div>
     );
