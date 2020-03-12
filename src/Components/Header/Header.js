@@ -66,7 +66,7 @@ class Header extends React.Component {
             </Link>
             {/* <div className="username"> */}
             {this.props.loading ? (
-              <h1>waiting...</h1>
+              <p></p>
             ) : this.props.loggedIn ? (
               <div>
                 <h1 className="welcome">

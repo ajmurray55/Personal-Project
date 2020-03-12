@@ -20,12 +20,13 @@ export function setUser(user){
     }
 }
 export function getSession(){
-    let user = axios.get('/auth/user_session')
-    .then(res => res)
+    // let user = axios.get('/auth/user_session')
+    // .then(res => res)
     // console.log(user)
         return {
             type: GET_SESSION,
-            payload: user.data
+            payload: axios.get('/auth/user_session')
+            .then(res => res.data)
     }
 }
 
@@ -46,16 +47,16 @@ export function myCart(cart){
 }
 
 export default function reducer( state = initialState, action){
-    // console.log("reducer",action)
+    console.log("reducer",action)
     switch(action.type){
         case SET_USER:  
             return {user: action.payload, loggedIn: true}
         case GET_SESSION + '_PENDING':
             return {...state, loading: true}
         case GET_SESSION + '_FULLFILLED':
-            return {user: action.payload, loading: false}
+            return {user: action.payload, loading: false, loggedIn: true}
         case GET_SESSION + '_REJECTED':
-            return {...state, loading: true}
+            return {...state, loading: false, loggedIn: false}
         case LOGOUT:
             return {...state, loggedIn: false}
         case CART:
